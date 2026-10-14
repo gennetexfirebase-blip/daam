@@ -379,3 +379,6 @@ footer .f-brand small{display:block;font:600 10.5px Montserrat,sans-serif;letter
   .gal-lb .lb-nav{position:absolute;bottom:18px;width:46px;height:46px}
   .gal-lb .lb-nav.prev{left:18px}.gal-lb .lb-nav.next{right:18px}
 }
+.gallery .gimg,.gallery-more .gimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.gallery button:hover .gimg,.gallery-more button:hover .gimg{transform:scale(1.03)}
+.gcap{z-index:1}

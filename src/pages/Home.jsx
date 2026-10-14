@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { telHref, useLang, useSite, useTours } from '../store.jsx';
-import { galItem, TYPES, fmtDate, imgUrl, liveDepartures, pic, todayUB } from '../lib.js';
+import { galItem, srcSet, TYPES, fmtDate, imgUrl, liveDepartures, pic, todayUB } from '../lib.js';
 import { Drawer, TourCard } from '../components/TourBits.jsx';
 import { PostCard, usePosts } from './Blog.jsx';
 import { Logo } from '../components/Layout.jsx';
@@ -174,14 +174,16 @@ export default function Home() {
           </div>
           <div className="gallery">
             {gal.slice(0, 5).map((g, i) => (
-              <button key={i} type="button" aria-label={t('gal.zoom')} style={{ backgroundImage: pic(g.src, i, i ? 900 : 1400) }} onClick={() => setLb(i)}>
+              <button key={i} type="button" aria-label={t('gal.zoom')} style={{ backgroundImage: pic('', i) }} onClick={() => setLb(i)}>
+                <img className="gimg" src={imgUrl(g.src, i ? 900 : 1600, 85)} srcSet={srcSet(g.src)} sizes={i ? '(max-width:640px) 50vw, 25vw' : '(max-width:640px) 100vw, 50vw'} alt={T(g.cap)} loading="lazy" decoding="async" />
                 {T(g.cap) && <span className="gcap">{T(g.cap)}</span>}
               </button>
             ))}
           </div>
           {galAll && gal.length > 5 && <div className="gallery-more">
             {gal.slice(5).map((g, i) => (
-              <button key={i} type="button" aria-label={t('gal.zoom')} style={{ backgroundImage: pic(g.src, i, 700) }} onClick={() => setLb(i + 5)}>
+              <button key={i} type="button" aria-label={t('gal.zoom')} style={{ backgroundImage: pic('', i) }} onClick={() => setLb(i + 5)}>
+                <img className="gimg" src={imgUrl(g.src, 900, 85)} srcSet={srcSet(g.src)} sizes="(max-width:640px) 50vw, 33vw" alt={T(g.cap)} loading="lazy" decoding="async" />
                 {T(g.cap) && <span className="gcap">{T(g.cap)}</span>}
               </button>
             ))}
@@ -241,7 +243,7 @@ export default function Home() {
         <button type="button" className="lb-x" aria-label={t('close')} onClick={() => setLb(null)}>&times;</button>
         <button type="button" className="lb-nav prev" aria-label={t('gal.prev')} onClick={() => setLb(lbIdx - 1)}>‹</button>
         <figure>
-          <img src={imgUrl(lbItem.src, 2000)} alt={T(lbItem.cap)} />
+          <img src={imgUrl(lbItem.src, 2400, 90)} srcSet={srcSet(lbItem.src, 90)} sizes="90vw" alt={T(lbItem.cap)} />
           <figcaption><span>{T(lbItem.cap)}</span><span>{lbIdx + 1} / {gal.length}</span></figcaption>
         </figure>
         <button type="button" className="lb-nav next" aria-label={t('gal.next')} onClick={() => setLb(lbIdx + 1)}>›</button>

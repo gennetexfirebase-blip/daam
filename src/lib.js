@@ -3,8 +3,11 @@ export const L = (mn, en, zh) => ({ mn, en, zh });
 
 // Зураг: Unsplash id ("photo-…") эсвэл URL ("/uploads/…", "https://…")
 const FALL = ['#14213d,#ffa500', '#2d4a7a,#ffc65c', '#14213d,#e08e00', '#3d5a80,#ffa500'];
-export const imgUrl = (src, w = 1400) => !src ? '' : src.startsWith('photo-')
-  ? `https://images.unsplash.com/${src}?auto=format&fit=crop&w=${w}&q=70` : src;
+export const imgUrl = (src, w = 1400, q = 70) => !src ? '' : src.startsWith('photo-')
+  ? `https://images.unsplash.com/${src}?auto=format&fit=crop&w=${w}&q=${q}` : src;
+// Дэлгэцийн хэмжээ, нягтралд тохирсон хамгийн чанартай хувилбарыг хөтөч өөрөө сонгоно
+export const srcSet = (src, q = 85) => src?.startsWith('photo-')
+  ? [600, 900, 1200, 1600, 2000, 2600].map(w => `${imgUrl(src, w, q)} ${w}w`).join(', ') : undefined;
 export const pic = (src, i = 0, w) => `${src ? `url(${imgUrl(src, w)}), ` : ''}linear-gradient(135deg,${FALL[i % 4]})`;
 
 export const P = {
