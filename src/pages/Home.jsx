@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { telHref, useLang, useSite, useTours } from '../store.jsx';
-import { TYPES, fmtDate, imgUrl, liveDepartures, pic, todayUB } from '../lib.js';
+import { galItem, TYPES, fmtDate, imgUrl, liveDepartures, pic, todayUB } from '../lib.js';
 import { Drawer, TourCard } from '../components/TourBits.jsx';
 import { PostCard, usePosts } from './Blog.jsx';
 import { Logo } from '../components/Layout.jsx';
@@ -19,7 +19,8 @@ export default function Home() {
   const all = tours || [];
   const [current, setCurrent] = useState(null);
   const [state, setState] = useState({ type: 'all', country: '', q: '', showAll: false });
-  const [lb, setLb] = useState(null);
+  const [lb, setLb] = useState(null); // нээлттэй зургийн дугаар
+  const [galAll, setGalAll] = useState(false);
   const [openFaq, setOpenFaq] = useState({});
 
   const today = todayUB();
@@ -45,7 +46,11 @@ export default function Home() {
     try { history.replaceState(history.state, '', location.pathname + location.search); } catch (e) {}
   };
   useEffect(() => {
-    const onKey = e => { if (e.key === 'Escape') { setLb(null); close(); } };
+    const onKey = e => {
+      if (e.key === 'Escape') { setLb(null); close(); }
+      else if (e.key === 'ArrowRight') setLb(i => i == null ? i : i + 1);
+      else if (e.key === 'ArrowLeft') setLb(i => i == null ? i : i - 1);
+    };
     addEventListener('keydown', onKey); return () => removeEventListener('keydown', onKey);
   }, []);
 
@@ -61,6 +66,9 @@ export default function Home() {
   const pickCountry = c => { setState({ type: 'all', country: c, q: '', showAll: false }); document.getElementById('programs').scrollIntoView(); };
 
   const curTour = all.find(x => x.slug === current);
+  const gal = site.gallery.map(galItem).filter(g => g.src);
+  const lbIdx = lb == null || !gal.length ? null : ((lb % gal.length) + gal.length) % gal.length;
+  const lbItem = lbIdx == null ? null : gal[lbIdx];
 
   return (
     <>
@@ -165,8 +173,20 @@ export default function Home() {
             <a className="link" href={FB + '&sk=photos_by'} target="_blank" rel="noopener">{t('gal.fb')}</a>
           </div>
           <div className="gallery">
-            {site.gallery.map((g, i) => <button key={g + i} type="button" aria-label={t('gal.zoom')} style={{ backgroundImage: pic(g, i) }} onClick={() => setLb(g)}></button>)}
+            {gal.slice(0, 5).map((g, i) => (
+              <button key={i} type="button" aria-label={t('gal.zoom')} style={{ backgroundImage: pic(g.src, i, i ? 900 : 1400) }} onClick={() => setLb(i)}>
+                {T(g.cap) && <span className="gcap">{T(g.cap)}</span>}
+              </button>
+            ))}
           </div>
+          {galAll && gal.length > 5 && <div className="gallery-more">
+            {gal.slice(5).map((g, i) => (
+              <button key={i} type="button" aria-label={t('gal.zoom')} style={{ backgroundImage: pic(g.src, i, 700) }} onClick={() => setLb(i + 5)}>
+                {T(g.cap) && <span className="gcap">{T(g.cap)}</span>}
+              </button>
+            ))}
+          </div>}
+          {gal.length > 5 && <div className="more"><button type="button" className="btn line" onClick={() => setGalAll(v => !v)}>{galAll ? t('gal.less') : t('gal.all', { n: gal.length })}</button></div>}
         </div>
       </section>
 
@@ -217,10 +237,15 @@ export default function Home() {
         </div>
       </section>
 
-      <div className={`lb${lb ? ' on' : ''}`} role="dialog" aria-modal="true" aria-label={t('gal.zoom')} onClick={e => { if (e.target === e.currentTarget) setLb(null); }}>
-        <button type="button" aria-label={t('close')} onClick={() => setLb(null)}>&times;</button>
-        <div style={lb ? { backgroundImage: `url(${imgUrl(lb, 2000)})` } : undefined}></div>
-      </div>
+      {lbItem && <div className="lb on gal-lb" role="dialog" aria-modal="true" aria-label={t('gal.zoom')} onClick={e => { if (e.target === e.currentTarget) setLb(null); }}>
+        <button type="button" className="lb-x" aria-label={t('close')} onClick={() => setLb(null)}>&times;</button>
+        <button type="button" className="lb-nav prev" aria-label={t('gal.prev')} onClick={() => setLb(lbIdx - 1)}>‹</button>
+        <figure>
+          <img src={imgUrl(lbItem.src, 2000)} alt={T(lbItem.cap)} />
+          <figcaption><span>{T(lbItem.cap)}</span><span>{lbIdx + 1} / {gal.length}</span></figcaption>
+        </figure>
+        <button type="button" className="lb-nav next" aria-label={t('gal.next')} onClick={() => setLb(lbIdx + 1)}>›</button>
+      </div>}
       <Drawer tour={curTour} index={all.indexOf(curTour)} onClose={close} />
     </>
   );

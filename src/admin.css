@@ -154,3 +154,8 @@ label.code input{flex:0 0 70px;height:34px;text-transform:lowercase}
   .img-row,.ctry-ed{grid-template-columns:1fr}
   .gal-ed.big{grid-template-columns:repeat(3,1fr)}
 }
+.gal-ed.big{align-items:start}
+.gal-ed.big .gal-card{aspect-ratio:auto;background:none;display:grid;gap:6px}
+.gal-card .gal-im{aspect-ratio:4/3;border-radius:8px;background-size:cover;background-position:center;position:relative}
+.gal-card .lk{flex-basis:30px}
+.gal-ed.big .gal-card .lf,.gal-ed.big .gal-card .lrow{aspect-ratio:auto;border-radius:0;background:none}

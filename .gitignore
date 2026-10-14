@@ -6,3 +6,6 @@ dist
 server/data
 supabase/.temp
 .vscode
+# Дэлгэцийн бичлэг, видео
+*.mp4
+*.mov

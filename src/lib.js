@@ -18,6 +18,9 @@ export const P = {
   factory: 'photo-1565043666747-69f6646db940'
 };
 
+// Цомгийн зураг: хуучин хэлбэр (зөвхөн холбоос) эсвэл { src, cap }
+export const galItem = g => typeof g === 'string' ? { src: g, cap: '' } : { src: g?.src || '', cap: g?.cap || '' };
+
 export const TYPES = ['all', 'leisure', 'cruise', 'health', 'business', 'free'];
 export const PRICE_KEYS = ['p', 'adult', 'kid', 's4', 's5'];
 
@@ -30,7 +33,18 @@ export const DEFAULT_SITE = {
   website: 'https://daamworld.net',
   heroImgs: [P.beach, P.wall],
   aboutImg: P.people,
-  gallery: [P.cruise, P.beach, P.mount, P.korea, P.wall],
+  gallery: [
+    { src: P.cruise, cap: L('Круйз аялал', 'Cruise', '邮轮') },
+    { src: P.beach, cap: L('Хайнан', 'Hainan', '海南') },
+    { src: P.mount, cap: L('Жанжиажэ', 'Zhangjiajie', '张家界') },
+    { src: P.wall, cap: L('Цагаан хэрэм', 'The Great Wall', '长城') },
+    { src: P.city, cap: L('Шанхай', 'Shanghai', '上海') },
+    { src: P.korea, cap: L('Сөүл', 'Seoul', '首尔') },
+    { src: P.dubai, cap: L('Дубай', 'Dubai', '迪拜') },
+    { src: P.japan, cap: L('Япон', 'Japan', '日本') },
+    { src: P.thai, cap: L('Тайланд', 'Thailand', '泰国') },
+    { src: P.turkey, cap: L('Турк', 'Türkiye', '土耳其') }
+  ],
   stats: [
     { n: '7', label: L('улс руу аялал', 'countries', '个国家') },
     { n: '90', label: L('оюутныг дадлагад хүргэсэн', 'students on a study trip', '名学生参加实习考察') },

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSite } from '../../store.jsx';
 import { saveSiteContent } from '../../data.js';
-import { DEFAULT_SITE, pic } from '../../lib.js';
+import { DEFAULT_SITE, galItem, pic } from '../../lib.js';
 import { I18N } from '../../i18n.js';
 import { LInput, toL, uploadOrAlert } from './TourEditor.jsx';
 import { failWith } from './Admin.jsx';
@@ -55,6 +55,7 @@ export default function SiteEditor({ onAuthFail }) {
   const site = useSite();
   const [f, setF] = useState(() => {
     const base = clone({ ...DEFAULT_SITE, ...site.raw });
+    base.gallery = base.gallery.map(galItem);
     base.text = { ...Object.fromEntries(ALL_KEYS.map(k => [k, L3(k)])), ...(site.raw.text || {}) };
     return base;
   });
@@ -194,20 +195,23 @@ export default function SiteEditor({ onAuthFail }) {
           <section className="ed-block" id="s-gallery">
             <h3>{sec('gallery').title}</h3>
             {texts(sec('gallery').keys)}
-            <p className="adm-muted">Эхний 5 зураг нүүр хуудсанд харагдана. Эхнийх нь хамгийн том.</p>
+            <p className="adm-muted">Эхний 5 зураг шууд харагдана (эхнийх нь хамгийн том), бусад нь "Бүх зургийг үзэх" дээр дарахад гарна. Зураг бүрт газрын нэр бичвэл зургийн доор харагдана.</p>
             <div className="gal-ed big">
               {f.gallery.map((g, i) => (
-                <div key={i} style={{ backgroundImage: pic(g, i, 400) }}>
+                <div key={i} className="gal-card">
+                  <div className="gal-im" style={{ backgroundImage: pic(g.src, i, 400) }}>
                   <span className="gal-tools">
                     <button type="button" onClick={() => set('gallery', moved(f.gallery, i, -1))} disabled={i === 0}>◀</button>
                     <button type="button" onClick={() => set('gallery', moved(f.gallery, i, 1))} disabled={i === f.gallery.length - 1}>▶</button>
                     <button type="button" className="x" onClick={() => set('gallery', f.gallery.filter((_, n) => n !== i))}>×</button>
                   </span>
+                  </div>
+                  <LInput value={g.cap} onChange={v => setItem('gallery', i, { cap: v })} />
                 </div>
               ))}
             </div>
             <label className="btn ghost sm file">{galBusy ? 'Оруулж байна…' : '+ Зургууд нэмэх'}<input type="file" accept="image/*" multiple disabled={galBusy}
-              onChange={async e => { const fl = e.target.files; if (!fl.length) return; setGalBusy(true); const u = await uploadOrAlert(fl); setGalBusy(false); if (u) set('gallery', [...f.gallery, ...u]); e.target.value = ''; }} /></label>
+              onChange={async e => { const fl = e.target.files; if (!fl.length) return; setGalBusy(true); const u = await uploadOrAlert(fl); setGalBusy(false); if (u) set('gallery', [...f.gallery, ...u.map(src => ({ src, cap: toL('') }))]); e.target.value = ''; }} /></label>
           </section>
 
           <section className="ed-block" id="s-blog">
