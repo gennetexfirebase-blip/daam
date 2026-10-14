@@ -4,6 +4,7 @@ import { telHref, useLang, useSite, useTours } from '../store.jsx';
 import { submitRegistration } from '../data.js';
 import { liveDepartures, pic, seatsLeft } from '../lib.js';
 import { I18N } from '../i18n.js';
+import Icon from '../components/Icons.jsx';
 
 const ROOMS = ['share', 'single', 'family', 'extra', 'nobed'];
 const WHY = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -96,18 +97,52 @@ function LetterPick({ value, onChange, label, open, setOpen }) {
   );
 }
 
+/* Регистрийн 8 оронг товчлуураар оруулах */
+function DigitPad({ value, onChange, open, setOpen, label }) {
+  const ref = useRef(null);
+  // Хурдан дарахад хамгийн сүүлийн утгаас үргэлжлүүлнэ
+  const cur = useRef(value);
+  cur.current = value;
+  const put = v => { cur.current = v; onChange(v); return v; };
+  const press = d => { if (cur.current.length < 8 && put(cur.current + d).length === 8) setOpen(false); };
+  const del = () => put(cur.current.slice(0, -1));
+  useEffect(() => {
+    if (!open) return;
+    const away = e => { if (!ref.current?.contains(e.target)) setOpen(false); };
+    const key = e => {
+      if (/^\d$/.test(e.key)) { e.preventDefault(); press(e.key); }
+      else if (e.key === 'Backspace') { e.preventDefault(); del(); }
+      else if (e.key === 'Escape' || e.key === 'Enter') { e.preventDefault(); setOpen(false); }
+    };
+    document.addEventListener('mousedown', away); document.addEventListener('keydown', key);
+    return () => { document.removeEventListener('mousedown', away); document.removeEventListener('keydown', key); };
+  }, [open]);
+  return (
+    <div className="dp" ref={ref}>
+      <button type="button" className={`dp-boxes${open ? ' on' : ''}`} aria-label={label} aria-expanded={open} onClick={() => setOpen(!open)}>
+        {Array.from({ length: 8 }, (_, i) => <span key={i} className={i === value.length && open ? 'cur' : ''}>{value[i] || ''}</span>)}
+      </button>
+      {open && <div className="dp-pop" role="group" aria-label={label}>
+        {['1', '2', '3', '4', '5', '6', '7', '8', '9'].map(d => <button key={d} type="button" onClick={() => press(d)} disabled={value.length >= 8}>{d}</button>)}
+        <button type="button" className="dp-del" onClick={del} aria-label="⌫" disabled={!value}>⌫</button>
+        <button type="button" onClick={() => press('0')} disabled={value.length >= 8}>0</button>
+        <button type="button" className="dp-ok" onClick={() => setOpen(false)} aria-label="OK">✓</button>
+      </div>}
+    </div>
+  );
+}
+
 /* Регистрийн дугаар: 2 үсэг + 8 орон */
 function RegisterInput({ p, set, t }) {
-  const [open, setOpen] = useState(0); // 0 хаалттай, 1 эхний үсэг, 2 хоёр дахь үсэг
-  const numRef = useRef(null);
+  const [open, setOpen] = useState(0); // 0 хаалттай, 1 эхний үсэг, 2 хоёр дахь үсэг, 3 тоо
   return (
     <div className="reg-in">
       <LetterPick label={t('r.regL1')} value={p.reg1} open={open === 1} setOpen={o => setOpen(o ? 1 : 0)}
         onChange={l => { set('reg1', l); setOpen(l ? 2 : 0); }} />
       <LetterPick label={t('r.regL2')} value={p.reg2} open={open === 2} setOpen={o => setOpen(o ? 2 : 0)}
-        onChange={l => { set('reg2', l); setOpen(0); if (l) numRef.current?.focus(); }} />
-      <input ref={numRef} inputMode="numeric" maxLength={8} placeholder="00000000" aria-label={t('r.register')}
-        value={p.regNum} onChange={e => set('regNum', e.target.value.replace(/\D/g, '').slice(0, 8))} />
+        onChange={l => { set('reg2', l); setOpen(l ? 3 : 0); }} />
+      <DigitPad label={t('r.register')} value={p.regNum} open={open === 3} setOpen={o => setOpen(o ? 3 : 0)}
+        onChange={v => set('regNum', v)} />
     </div>
   );
 }
@@ -319,7 +354,7 @@ export default function Register() {
                 </div>
                 <p>{t('r.why.h')}</p>
                 <div className="chips why">
-                  {WHY.map(w => <label key={w} className="chip"><input type="checkbox" checked={reasons.includes(w)} onChange={() => toggleWhy(w)} /><span>{t('why.' + w)}</span></label>)}
+                  {WHY.map(w => <label key={w} className="chip"><input type="checkbox" checked={reasons.includes(w)} onChange={() => toggleWhy(w)} /><span><Icon name={'why' + w} />{t('why.' + w)}</span></label>)}
                 </div>
               </div>
               <div className="extra-q">
@@ -335,8 +370,9 @@ export default function Register() {
                       <div key={k} className={`need${on ? ' on' : ''}`}>
                         <label className="need-h">
                           <input type="checkbox" checked={on} onChange={() => toggleNeed(k)} />
+                          <span className="need-ic"><Icon name={k} /></span>
+                          <span className="need-tx">{t('need.' + k)}</span>
                           <span className="box" aria-hidden="true" />
-                          <span>{t('need.' + k)}</span>
                         </label>
                         {on && detail ? <input className="need-in" autoFocus maxLength={200} placeholder={t('need.' + k + '.ph')} aria-label={t('need.' + k)}
                           value={needs[k]} onChange={e => setNeeds(n => ({ ...n, [k]: e.target.value }))} /> : null}
