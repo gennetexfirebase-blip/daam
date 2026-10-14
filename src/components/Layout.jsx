@@ -1,10 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { telHref, useLang, useSite } from '../store.jsx';
 
-export function Logo() {
-  return <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#ffa500" /><path d="M8 22c6-1 10-6 12-12 1 6 5 10 12 11-7 1-11 5-12 11-2-6-6-9-12-10z" fill="#14213d" /></svg>;
+/* DA.am World лого (D тэмдэг) */
+export function Logo({ className }) {
+  const id = useId().replace(/:/g, '');
+  return (
+    <svg className={className} viewBox="14 11 66 60" aria-hidden="true">
+      <defs>
+        <linearGradient id={'g' + id} gradientUnits="userSpaceOnUse" x1="30" y1="13" x2="52" y2="68">
+          <stop offset="0" stopColor="#f4a64c" /><stop offset="1" stopColor="#df6420" />
+        </linearGradient>
+        <clipPath id={'c' + id}><circle cx="50" cy="40.7" r="25.2" /></clipPath>
+      </defs>
+      <g fill="none" stroke={`url(#g${id})`} strokeWidth="4.6" strokeMiterlimit="12">
+        <path d="M62 29.4 C57 28.3 53 28 48 28 C31 28 24.5 23.8 18.6 15.5 H50 A25.2 25.2 0 0 1 50 65.9 H31.5 V48.6 H18.4" />
+        <path clipPath={`url(#c${id})`} d="M48 28 C53 28 57 28.3 62 29.4 C67.5 30.6 72 34.5 77 41" />
+        <path d="M29.8 40 H44.6 V52.6 H51 C59.5 52.6 63.6 47 63.6 40.4 C63.6 34.6 61 30 56 28.6 L51 28.1" />
+      </g>
+    </svg>
+  );
 }
+export const Wordmark = () => <strong className="wordmark">DA.am <span>World</span></strong>;
 
 function LangSwitch() {
   const { lang, setLang } = useLang();
@@ -58,7 +75,7 @@ export default function Layout() {
         <div className="wrap">
           <Link to="/" className="logo" aria-label="DA.am World">
             <Logo />
-            <div><strong>DA.am <span>World</span></strong><small>Study &amp; Travel</small></div>
+            <div><Wordmark /><small>Since 2016 · Study &amp; Travel</small></div>
           </Link>
           <nav id="links">
             <Link to="/package" className={cls('package')} onClick={close}>{t('nav.packages')}</Link>
@@ -78,7 +95,7 @@ export default function Layout() {
       <footer>
         <div className="wrap">
           <div className="top">
-            <div><strong>DA.am <span>World</span></strong>Study &amp; Travel</div>
+            <div className="f-brand"><Logo /><div><Wordmark /><small>Since 2016 · Study &amp; Travel</small></div></div>
             <nav>
               <Link to="/package">{t('nav.packages')}</Link>
               <SecLink id="countries">{t('nav.countries')}</SecLink>

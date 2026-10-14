@@ -4,6 +4,7 @@ import { telHref, useLang, useSite, useTours } from '../store.jsx';
 import { TYPES, fmtDate, imgUrl, liveDepartures, pic, todayUB } from '../lib.js';
 import { Drawer, TourCard } from '../components/TourBits.jsx';
 import { PostCard, usePosts } from './Blog.jsx';
+import { Logo } from '../components/Layout.jsx';
 
 const PAGE = 9;
 
@@ -82,7 +83,7 @@ export default function Home() {
           <div className="photos" aria-hidden="true">
             <figure className="pc a"><div style={{ backgroundImage: pic(site.heroImgs[0], 1) }}></div><figcaption>{t('cap.1')}</figcaption></figure>
             <figure className="pc b"><div style={{ backgroundImage: pic(site.heroImgs[1], 0) }}></div><figcaption>{t('cap.2')}</figcaption></figure>
-            <div className="stamp">DA.am<br />World<br />Study &amp;<br />Travel</div>
+            <div className="stamp"><Logo /><span>Since<br />2016</span></div>
           </div>
         </div>
       </section>

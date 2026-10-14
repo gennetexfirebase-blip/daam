@@ -3,9 +3,37 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { telHref, useLang, useSite, useTours } from '../store.jsx';
 import { submitRegistration } from '../data.js';
 import { liveDepartures, pic, seatsLeft } from '../lib.js';
+import { I18N } from '../i18n.js';
 
 const ROOMS = ['share', 'single', 'family', 'extra', 'nobed'];
 const WHY = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+// Бидэнд мэдэгдэх зүйлс: 1 = чагтлахад тайлбар бичих талбар гарна
+const NEEDS = [['health', 1], ['allergy', 1], ['diet', 1], ['mobility', 1], ['kids', 1], ['seat', 1], ['visa', 1], ['first', 0]];
+// Өрөөний сонголтын зураг: хажуугаас харсан ор, аялагчид
+function Bed({ x, w, heads = [], kid }) {
+  const y = 26;
+  return (
+    <g>
+      <rect className="fr" x={x} y={y - 12} width="3.2" height="25" rx="1.4" />
+      <rect className="fr" x={x + w - 2.6} y={y - 2} width="2.6" height="15" rx="1.2" />
+      <rect className="mt" x={x + 2} y={y + 1} width={w - 3} height="7" rx="2" />
+      <rect className="pl" x={x + 3.5} y={y - 2.6} width="9" height="4.6" rx="2.2" />
+      {heads.map((h, i) => <circle key={i} className={h < 3 ? 'hd kid' : 'hd'} cx={x + 8 + i * 8} cy={y - 4.6 - (i % 2) * 1.2} r={h} />)}
+      <path className="bl" d={`M${x + 12} ${y - 1.5} h${w - 14.6} a2 2 0 0 1 2 2 v8 h-${w - 12.6} z`} />
+      <rect className="fr" x={x} y={y + 8} width={w} height="2.6" rx="1.2" />
+      {kid && <circle className="hd kid" cx={x + 8} cy={y - 10} r="2.4" />}
+    </g>
+  );
+}
+const scene = children => <svg viewBox="0 0 80 44" aria-hidden="true">{children}</svg>;
+const ROOM_ICONS = {
+  share: scene(<><Bed x={4} w={34} heads={[3.4]} /><Bed x={42} w={34} heads={[3.4]} /></>),
+  single: scene(<Bed x={16} w={48} heads={[3.4]} />),
+  family: scene(<Bed x={8} w={64} heads={[3.4, 3.4, 2.5]} />),
+  extra: scene(<><Bed x={2} w={48} heads={[3.4, 3.4]} /><Bed x={54} w={24} heads={[2.6]} /><g className="plus"><circle cx="70" cy="9" r="6" /><path d="M70 6v6M67 9h6" /></g></>),
+  nobed: scene(<><Bed x={10} w={50} heads={[3.4, 2.5]} /><g className="nobed"><rect x="63" y="20" width="13" height="8" rx="2" /><path d="M61 32 78 16" /></g></>)
+};
+
 let uid = 0;
 const blank = () => ({ key: ++uid, kind: 'adult', lastName: '', firstName: '', gender: 'm', birth: '', reg1: '', reg2: '', regNum: '', passPrefix: 'PE', passNum: '' });
 const LOCALE = { mn: 'mn-MN', en: 'en-GB', zh: 'zh-CN' };
@@ -109,6 +137,7 @@ export default function Register() {
   const [room, setRoom] = useState('share');
   const [reasons, setReasons] = useState([]);
   const [note, setNote] = useState('');
+  const [needs, setNeeds] = useState({}); // түлхүүр → тайлбар
   const [dep, setDep] = useState(params.get('d') || '');
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
@@ -128,6 +157,7 @@ export default function Register() {
     if (k === 'regNum') { const r = fromRegister(v); if (r) Object.assign(next, r); }
     return next;
   }));
+  const toggleNeed = k => setNeeds(n => { const x = { ...n }; if (k in x) delete x[k]; else x[k] = ''; return x; });
   const toggleWhy = w => setReasons(r => r.includes(w) ? r.filter(z => z !== w) : [...r, w]);
 
   /* Үнийн тооцоо */
@@ -153,11 +183,17 @@ export default function Register() {
     };
   };
 
+  // Чагталсан зүйлсийг админд ойлгомжтой (монголоор) тайлбарын эхэнд нэмнэ
+  const fullNote = () => {
+    const lines = NEEDS.filter(([k]) => k in needs).map(([k]) => '• ' + I18N.mn['need.' + k] + (needs[k].trim() ? ': ' + needs[k].trim() : ''));
+    return [lines.join('\n'), note.trim()].filter(Boolean).join('\n\n');
+  };
+
   const submit = async e => {
     e.preventDefault();
     setBusy(true); setErr('');
     try {
-      const id = await submitRegistration({ tourSlug: x.slug, departure: depVal, contact, travellers: people.map(({ key, reg1, reg2, regNum, passPrefix, passNum, ...p }) => ({ ...p, register: regNum ? (reg1 || '') + (reg2 || '') + regNum : '', passport: passNum ? passPrefix + passNum : '' })), room, reasons, note });
+      const id = await submitRegistration({ tourSlug: x.slug, departure: depVal, contact, travellers: people.map(({ key, reg1, reg2, regNum, passPrefix, passNum, ...p }) => ({ ...p, register: regNum ? (reg1 || '') + (reg2 || '') + regNum : '', passport: passNum ? passPrefix + passNum : '' })), room, reasons, note: fullNote() });
       setDone(id); reload(); scrollTo(0, 0);
     } catch (ex) {
       setErr(ex.code === 'rate_limited' ? t('r.limit') : ex.code === 'full' ? t('t.full') : t('r.err'));
@@ -261,18 +297,59 @@ export default function Register() {
             </Step>
 
             <Step n={4} title={t('r.room')} hint={t('r.room.h')}>
-              <div className="room-pick">
-                {ROOMS.map(r => <label key={r} className="room-opt"><input type="radio" name="room" checked={room === r} onChange={() => setRoom(r)} /><span>{t('r.room.' + r)}</span></label>)}
+              <div className="room-pick" role="radiogroup" aria-label={t('r.room')}>
+                {ROOMS.map(r => (
+                  <label key={r} className="room-opt">
+                    <input type="radio" name="room" checked={room === r} onChange={() => setRoom(r)} />
+                    <span className="room-card">
+                      <span className="room-ic">{ROOM_ICONS[r]}</span>
+                      <span className="room-tx"><b>{t('r.room.' + r)}</b><small>{t('r.room.' + r + '.d')}</small></span>
+                      <span className="room-ck" aria-hidden="true" />
+                    </span>
+                  </label>
+                ))}
               </div>
             </Step>
 
             <Step n={5} title={t('r.extra')} aside={<small className="opt">({t('r.optional')})</small>}>
-              <p className="sub-l">{t('r.why')}</p>
-              <div className="chips">
-                {WHY.map(w => <label key={w} className="chip"><input type="checkbox" checked={reasons.includes(w)} onChange={() => toggleWhy(w)} /><span>{t('why.' + w)}</span></label>)}
+              <div className="extra-q">
+                <div className="extra-h">
+                  <b>{t('r.why')}</b>
+                  {reasons.length > 0 && <span className="picked">{t('r.picked', { n: reasons.length })}</span>}
+                </div>
+                <p>{t('r.why.h')}</p>
+                <div className="chips why">
+                  {WHY.map(w => <label key={w} className="chip"><input type="checkbox" checked={reasons.includes(w)} onChange={() => toggleWhy(w)} /><span>{t('why.' + w)}</span></label>)}
+                </div>
               </div>
-              <p className="sub-l">{t('r.note')}</p>
-              <textarea rows="3" placeholder={t('r.notePh')} value={note} onChange={e => setNote(e.target.value)} />
+              <div className="extra-q">
+                <div className="extra-h">
+                  <b>{t('r.needs')}</b>
+                  {Object.keys(needs).length > 0 && <span className="picked">{t('r.picked', { n: Object.keys(needs).length })}</span>}
+                </div>
+                <p>{t('r.needs.h')}</p>
+                <div className="needs">
+                  {NEEDS.map(([k, detail]) => {
+                    const on = k in needs;
+                    return (
+                      <div key={k} className={`need${on ? ' on' : ''}`}>
+                        <label className="need-h">
+                          <input type="checkbox" checked={on} onChange={() => toggleNeed(k)} />
+                          <span className="box" aria-hidden="true" />
+                          <span>{t('need.' + k)}</span>
+                        </label>
+                        {on && detail ? <input className="need-in" autoFocus maxLength={200} placeholder={t('need.' + k + '.ph')} aria-label={t('need.' + k)}
+                          value={needs[k]} onChange={e => setNeeds(n => ({ ...n, [k]: e.target.value }))} /> : null}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="extra-q">
+                <div className="extra-h"><label htmlFor="rgNote"><b>{t('r.noteMore')}</b></label></div>
+                <textarea id="rgNote" rows="3" maxLength={1200} placeholder={t('r.notePh')} value={note} onChange={e => setNote(e.target.value)} />
+                <span className="chars">{t('r.chars', { n: note.length, max: 1200 })}</span>
+              </div>
             </Step>
 
             {err && <p className="rg-err" role="alert">{err}</p>}

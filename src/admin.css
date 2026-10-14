@@ -54,7 +54,7 @@
 .adm-reg table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
 .adm-reg th,.adm-reg td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}
 .adm-reg th{color:var(--slate);font-weight:500}
-.adm-reg p{font-size:14.5px;margin-bottom:6px}
+.adm-reg p{font-size:14.5px;margin-bottom:6px;white-space:pre-line}
 .adm-reg .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
 
 /* Засварлагч */
@@ -72,7 +72,7 @@
 .lrow input,.lrow textarea,.li select,.deps input{flex:1;min-width:0;font-size:15px;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
 .lrow input,.li select,.deps input{height:42px}
 .lrow textarea{resize:vertical;line-height:1.5}
-.lrow input:focus,.lrow textarea:focus,.li select:focus,.deps input:focus{outline:none;border-color:var(--orange-deep);box-shadow:0 0 0 3px rgba(255,165,0,.2)}
+.lrow input:focus,.lrow textarea:focus,.li select:focus,.deps input:focus{outline:none;border-color:var(--orange-deep);box-shadow:0 0 0 3px rgba(243,154,62,.2)}
 .lmore{flex:0 0 auto;border:0;background:var(--sky);border-radius:8px;height:42px;padding:0 10px;font-size:12px;font-weight:600;color:var(--slate);cursor:pointer}
 .lmore:hover{color:var(--ink)}
 .li{display:flex;gap:8px;align-items:flex-start}
@@ -132,7 +132,7 @@
 .site-ed .ed-block{scroll-margin-top:140px}
 input.plain{height:42px;padding:0 12px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;background:#fff;color:var(--ink);flex:1;min-width:0}
 input.plain.num{flex:0 0 90px;font-weight:700}
-input.plain:focus{outline:none;border-color:var(--orange-deep);box-shadow:0 0 0 3px rgba(255,165,0,.2)}
+input.plain:focus{outline:none;border-color:var(--orange-deep);box-shadow:0 0 0 3px rgba(243,154,62,.2)}
 .img-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .img-pick{display:grid;gap:8px}
 .img-acts{display:flex;gap:8px;align-items:center}

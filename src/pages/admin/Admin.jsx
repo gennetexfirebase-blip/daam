@@ -4,7 +4,7 @@ import { useSite, useTours } from '../../store.jsx';
 import { adminSignIn, adminSignOut, deleteRegistration, deleteTour, isAdmin, listRegistrations, listTours, reorderTours, sb, setRegistrationStatus, setTourActive } from '../../data.js';
 import { fmtDate, isUpcoming, liveDepartures, pic } from '../../lib.js';
 import { I18N } from '../../i18n.js';
-import { Logo } from '../../components/Layout.jsx';
+import { Logo, Wordmark } from '../../components/Layout.jsx';
 import TourEditor from './TourEditor.jsx';
 import { PostEditor, PostsList } from './BlogAdmin.jsx';
 import SiteEditor from './SiteEditor.jsx';
@@ -30,7 +30,7 @@ function Login({ onLogin }) {
   return (
     <div className="adm-login">
       <form onSubmit={submit}>
-        <div className="adm-brand"><Logo /><b>DA.am <span>World</span></b></div>
+        <div className="adm-brand"><Logo /><Wordmark /></div>
         <h1>Админ</h1>
         <label>Имэйл<input type="email" autoFocus required autoComplete="username" value={email} onChange={e => setEmail(e.target.value)} /></label>
         <label>Нууц үг<input type="password" required autoComplete="current-password" value={pw} onChange={e => setPw(e.target.value)} /></label>
@@ -217,7 +217,7 @@ export default function Admin() {
   return (
     <div className="adm">
       <header className="adm-top">
-        <Link to="/admin" className="adm-brand"><Logo /><b>DA.am <span>World</span></b><em>Админ</em></Link>
+        <Link to="/admin" className="adm-brand"><Logo /><Wordmark /><em>Админ</em></Link>
         <nav>
           <Link to="/admin">Аяллууд</Link>
           <Link to="/admin/registrations">Бүртгэлүүд</Link>
