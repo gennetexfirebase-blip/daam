@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+.env.local
+# Хуучин JSON өгөгдөл (хувийн мэдээлэлтэй бүртгэлүүд)
+server/data
+supabase/.temp
+.vscode

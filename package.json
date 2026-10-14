@@ -1,0 +1,25 @@
+{
+  "name": "daamworld",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "db:push": "supabase db push",
+    "import": "node --env-file=.env scripts/import-data.mjs",
+    "create-admin": "node --env-file=.env scripts/create-admin.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.45.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "6.28.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.3.4",
+    "supabase": "2.47.2",
+    "vite": "5.4.11"
+  }
+}

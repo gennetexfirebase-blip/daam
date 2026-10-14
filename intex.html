@@ -1,0 +1,1167 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DA.am World Study &amp; Travel — аялал, круйз, тэтгэлэг</title>
+<meta name="description" content="Хятад, Солонгос, Япон, Дубай, Вьетнам, Тайланд, Турк руу аялал, круйз, бизнес аялал. Бакалавр, магистрын 100% тэтгэлэг.">
+<meta property="og:title" content="DA.am World Study & Travel">
+<meta property="og:description" content="Аялал, круйз, бизнес аялал, 100% тэтгэлэгт хөтөлбөр.">
+<link rel="alternate" hreflang="mn" href="?lang=mn">
+<link rel="alternate" hreflang="en" href="?lang=en">
+<link rel="alternate" hreflang="zh" href="?lang=zh">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&family=Caveat:wght@600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#ffa500;
+  --orange-deep:#e08e00;
+  --cream:#fff4e0;
+  --ink:#14213d;
+  --ink-2:#1f2e52;
+  --slate:#56627a;
+  --sky:#eef2f7;
+  --line:#dbe2ea;
+  --head:Montserrat,"Noto Sans SC",sans-serif;
+  --body:Inter,"Noto Sans SC",sans-serif;
+}
+html[lang^="zh"]{--head:"Noto Sans SC",Montserrat,sans-serif;--body:"Noto Sans SC",Inter,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.12;letter-spacing:-.02em;text-wrap:balance}
+html[lang^="zh"] h1,html[lang^="zh"] h2,html[lang^="zh"] h3,html[lang^="zh"] h4{letter-spacing:0;line-height:1.25}
+p,dd,li{text-wrap:pretty}
+::selection{background:var(--orange);color:var(--ink)}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+.btn{display:inline-block;border:0;cursor:pointer;font-weight:600;font-size:16px;padding:14px 26px;border-radius:12px;background:var(--orange);color:var(--ink);text-decoration:none;transition:background .2s,box-shadow .2s;text-align:center}
+.btn:hover{background:var(--orange-deep)}
+.btn.line{background:transparent;box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.line:hover{background:var(--ink);color:#fff}
+.btn.ghost{background:var(--sky)}
+.btn.ghost:hover{background:var(--line)}
+.link{font-weight:600;text-decoration:none;border-bottom:2px solid var(--orange);padding-bottom:1px}
+.link:hover{color:var(--orange-deep)}
+
+/* nav */
+.nav{border-bottom:1px solid transparent;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);position:sticky;top:0;z-index:40;transition:border-color .25s,box-shadow .25s}
+.nav.scrolled{border-color:var(--line);box-shadow:0 8px 24px -18px rgba(20,33,61,.35)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:76px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.logo svg{width:40px;height:40px;flex-shrink:0}
+.logo strong{font:800 20px/1 Montserrat,sans-serif;letter-spacing:-.03em}
+.logo strong span{color:var(--orange-deep)}
+.logo small{display:block;font:500 12px Inter,sans-serif;color:var(--slate);margin-top:4px}
+.nav nav{display:flex;gap:26px}
+.nav nav a{text-decoration:none;font-weight:500;color:var(--slate);font-size:15.5px;position:relative;padding:6px 0;white-space:nowrap}
+.nav nav a:hover,.nav nav a.active{color:var(--ink)}
+.nav nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--orange);transform:scaleX(0);transition:transform .25s}
+.nav nav a.active::after{transform:scaleX(1)}
+.lang{display:flex;background:var(--sky);border-radius:11px;padding:3px;gap:2px;flex-shrink:0}
+.lang button{border:0;background:none;padding:6px 10px;border-radius:8px;font-weight:600;font-size:13px;color:var(--slate);cursor:pointer;min-width:38px;transition:background .2s,color .2s}
+.lang button:hover{color:var(--ink)}
+.lang button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(20,33,61,.18)}
+.lang button[lang="zh"]{font-family:"Noto Sans SC",sans-serif}
+.phone{font:700 15.5px Montserrat,sans-serif;text-decoration:none;white-space:nowrap;padding:10px 14px;border-radius:10px;box-shadow:inset 0 0 0 1.5px var(--line);transition:box-shadow .2s,background .2s}
+.phone:hover{box-shadow:inset 0 0 0 1.5px var(--orange);background:var(--cream)}
+.menu{display:none;background:none;border:0;cursor:pointer;width:42px;height:42px;border-radius:10px}
+.menu span{display:block;height:2px;background:var(--ink);margin:6px 9px;border-radius:2px;transition:transform .25s,opacity .2s}
+.nav.open .menu span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav.open .menu span:nth-child(2){opacity:0}
+.nav.open .menu span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* hero */
+.hero{padding:60px 0 92px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+.next{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 16px 5px 5px;font-size:14.5px;cursor:pointer;margin-bottom:24px;transition:border-color .2s,box-shadow .2s;text-align:left}
+.next:hover{border-color:var(--orange);box-shadow:0 6px 18px -10px rgba(224,142,0,.6)}
+.next[hidden]{display:none}
+.next b{background:var(--ink);color:#fff;border-radius:999px;padding:4px 11px;font-weight:600;font-size:13px;white-space:nowrap}
+.next span{color:var(--slate)}
+.next strong{color:var(--ink);font-weight:600}
+.hero h1{font-size:clamp(38px,5.2vw,66px);font-weight:800}
+html[lang^="zh"] .hero h1{font-size:clamp(34px,4.6vw,58px)}
+.hero p.lead{font-size:19px;color:var(--slate);max-width:30em;margin:22px 0 34px}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+.trust{display:flex;gap:36px;margin-top:42px;padding-top:26px;border-top:1px solid var(--line);color:var(--slate);font-size:15px;flex-wrap:wrap}
+.trust b{display:block;font:800 26px Montserrat,sans-serif;color:var(--ink);letter-spacing:-.02em}
+
+.photos{position:relative;height:520px}
+.pc{position:absolute;background:#fff;padding:12px 12px 46px;box-shadow:0 2px 4px rgba(20,33,61,.08),0 18px 40px -12px rgba(20,33,61,.3);border-radius:4px}
+.pc div{width:100%;height:100%;background-size:cover;background-position:center;border-radius:2px}
+.pc figcaption{position:absolute;left:16px;bottom:9px;font:600 25px Caveat,cursive;color:var(--ink)}
+html[lang^="zh"] .pc figcaption{font:500 17px "Noto Sans SC",sans-serif;bottom:13px}
+.pc.a{width:62%;height:74%;right:0;top:0;transform:rotate(3deg)}
+.pc.a figcaption{left:auto;right:18px}
+.pc.b{width:48%;height:56%;left:0;bottom:0;transform:rotate(-5deg)}
+.stamp{position:absolute;left:30%;top:2%;z-index:2;width:132px;height:132px;border-radius:50%;border:3px solid var(--orange-deep);color:var(--orange-deep);display:grid;place-items:center;text-align:center;font:800 13px/1.25 Montserrat,sans-serif;transform:rotate(-14deg);background:rgba(255,255,255,.82)}
+.stamp::before{content:"";position:absolute;inset:6px;border-radius:50%;border:1.5px dashed var(--orange-deep)}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero .next,.hero h1,.hero p.lead,.hero .actions,.trust{animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
+  .hero h1{animation-delay:.05s}.hero p.lead{animation-delay:.1s}.hero .actions{animation-delay:.16s}.trust{animation-delay:.22s}
+  .pc.a{animation:dropA 1s .2s cubic-bezier(.2,.8,.2,1) both}
+  .pc.b{animation:dropB 1s .35s cubic-bezier(.2,.8,.2,1) both}
+  .stamp{animation:stamp .45s .95s cubic-bezier(.3,1.6,.5,1) both}
+}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+@keyframes dropA{from{opacity:0;transform:translateY(-30px) rotate(9deg)}}
+@keyframes dropB{from{opacity:0;transform:translateY(30px) rotate(-12deg)}}
+@keyframes stamp{from{opacity:0;transform:scale(1.8) rotate(-14deg)}}
+
+/* sections */
+.sec{padding:96px 0}
+.sec.sky{background:var(--sky)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:36px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(30px,3.8vw,46px);max-width:16em}
+.sec-head p{color:var(--slate);max-width:26em}
+
+/* departure board */
+.board{background:var(--ink);color:#fff;border-radius:24px;padding:34px 36px 30px;box-shadow:0 30px 60px -30px rgba(20,33,61,.6)}
+.board-top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.board-top h2{font-size:clamp(26px,3vw,36px)}
+.board-top p{color:#9fb0cc;font-size:15px;margin-top:6px}
+.clock{text-align:right;color:#9fb0cc;font-size:13px}
+.clock b{display:block;font:700 28px Montserrat,sans-serif;color:var(--orange);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.rows{display:grid;gap:8px}
+.row-head,.drow{display:grid;grid-template-columns:120px 170px 1fr 200px 150px;gap:18px;align-items:center}
+.row-head{font-size:13px;color:#7f90ad;padding:0 18px 6px}
+.drow{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:16px 18px;cursor:pointer;text-align:left;width:100%;color:#fff;transition:background .2s,border-color .2s}
+.drow:hover{background:rgba(255,255,255,.08);border-color:rgba(255,165,0,.5)}
+.flap{display:flex;gap:3px}
+.flap i{font:700 20px/1 Montserrat,sans-serif;font-style:normal;width:22px;height:32px;display:grid;place-items:center;background:var(--ink-2);border-radius:4px;position:relative;font-variant-numeric:tabular-nums;color:#fff}
+.flap i::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.45)}
+.flap i.sep{background:none;width:10px;color:#7f90ad}
+.dest-cell small{display:block;color:#9fb0cc;font-size:13px;margin-top:4px}
+.trip b{display:block;font-weight:600;font-size:16px}
+.trip span{color:#9fb0cc;font-size:14px}
+.dprice b{font:700 17px Montserrat,sans-serif;color:#fff}
+html[lang^="zh"] .dprice b{font-family:var(--head)}
+.dprice span{display:block;color:#9fb0cc;font-size:13px}
+.dstatus{color:var(--orange);font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+.dstatus::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(255,165,0,.2);flex-shrink:0}
+.board-empty{padding:28px 18px;border:1px dashed rgba(255,255,255,.2);border-radius:14px;color:#c6cfdf}
+.board-empty a{color:var(--orange)}
+.board-foot{margin-top:18px;color:#7f90ad;font-size:13px}
+
+/* programmes */
+.toolbar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:26px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{border:0;background:#fff;padding:9px 16px;border-radius:10px;cursor:pointer;font-weight:500;font-size:15px;color:var(--slate);box-shadow:inset 0 0 0 1px var(--line);white-space:nowrap;transition:color .2s,box-shadow .2s}
+.tabs button small{font-size:12px;margin-left:6px;opacity:.6;font-variant-numeric:tabular-nums}
+.tabs button:hover:not([aria-pressed="true"]){color:var(--ink);box-shadow:inset 0 0 0 1px var(--slate)}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:#fff;box-shadow:none}
+.finder{display:flex;gap:8px}
+.finder label{position:relative;display:block}
+.finder input,.finder select{font-size:15px;padding:10px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);height:44px}
+.finder input{padding-left:38px;width:240px}
+.finder input:focus,.finder select:focus{outline:none;border-color:var(--orange-deep);box-shadow:0 0 0 3px rgba(255,165,0,.22)}
+.finder svg{position:absolute;left:12px;top:50%;width:17px;height:17px;transform:translateY(-50%);stroke:var(--slate);fill:none;stroke-width:2;pointer-events:none}
+.result-note{color:var(--slate);font-size:15px;margin:-10px 0 20px}
+.result-note:empty{display:none}
+.result-note button{background:none;border:0;cursor:pointer;font-weight:600;border-bottom:2px solid var(--orange);margin-left:8px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tk{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s;text-align:left;padding:0;width:100%}
+.tk:hover{border-color:var(--orange);transform:translateY(-2px);box-shadow:0 14px 30px -20px rgba(20,33,61,.45)}
+.tk .phw{overflow:hidden;position:relative;width:100%}
+.tk .ph{height:160px;background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.tk:hover .ph{transform:scale(1.04)}
+.tk .tag{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.94);font-size:12px;font-weight:600;padding:4px 9px;border-radius:6px}
+.tk .bd{padding:18px 20px 16px;display:flex;flex-direction:column;gap:7px;flex:1;width:100%}
+.tk .where{font-size:13px;color:var(--slate);display:flex;align-items:center;gap:8px}
+.tk .where i{flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--line) 0 5px,transparent 5px 9px)}
+.tk .h{display:block;font-family:var(--head);font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-.01em}
+.tk .when{font-size:14px;color:var(--slate)}
+.tk .ft{width:100%;border-top:2px dashed var(--line);padding:14px 20px;display:flex;justify-content:space-between;align-items:end;gap:10px;position:relative;background:#fcfcfd}
+.tk .ft::before,.tk .ft::after{content:"";position:absolute;top:-12px;width:22px;height:22px;border-radius:50%;background:#fff;border:1px solid var(--line)}
+.tk .ft::before{left:-12px;clip-path:inset(0 0 0 50%)}.tk .ft::after{right:-12px;clip-path:inset(0 50% 0 0)}
+.tk .ft span{display:block;font-size:12.5px;color:var(--slate)}
+.tk .ft b{font:700 16px Montserrat,sans-serif;letter-spacing:-.01em}
+.tk .ft b.ask{font-family:var(--head)}
+.tk .ft em{font-style:normal;font-size:13px;color:var(--slate);text-align:right;line-height:1.35}
+.empty{grid-column:1/-1;padding:44px;background:var(--sky);border-radius:16px;color:var(--slate);text-align:center}
+.empty button{margin-top:14px}
+.more{text-align:center;margin-top:34px}
+.disclaimer{margin-top:22px;font-size:14px;color:var(--slate);text-align:center}
+
+/* countries */
+.ctry{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
+.ctry button{background:none;border:0;cursor:pointer;text-align:left;padding:0}
+.ctry .im{aspect-ratio:3/4;border-radius:14px;background-size:cover;background-position:center;transition:filter .25s}
+.ctry button:hover .im{filter:brightness(.86)}
+.ctry b{display:block;margin-top:10px;font-family:var(--head);font-weight:700;font-size:17px}
+.ctry span{display:block;font-size:13px;color:var(--slate);line-height:1.4;margin-top:2px}
+.ctry .n{color:var(--orange-deep);font-weight:600;margin-top:6px}
+
+/* about */
+.about{display:grid;grid-template-columns:.9fr 1fr;gap:72px;align-items:center}
+.about .im{aspect-ratio:4/5;border-radius:20px;background-size:cover;background-position:center}
+.about h2{font-size:clamp(30px,3.8vw,46px);margin-bottom:16px}
+.about .lead{color:var(--slate);margin-bottom:30px;max-width:32em}
+.about dl{display:grid;grid-template-columns:1fr 1fr;gap:26px 30px}
+.about dt{font-family:var(--head);font-weight:700;font-size:18px;margin-bottom:4px;display:flex;gap:10px;align-items:center}
+.about dt svg{width:22px;height:22px;stroke:var(--orange-deep);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.about dd{color:var(--slate);font-size:16px}
+
+/* study */
+.study{display:grid;grid-template-columns:1.1fr 1fr;border-radius:24px;overflow:hidden;background:var(--ink);color:#fff}
+.study .tx{padding:60px 54px}
+.study h2{font-size:clamp(28px,3.4vw,42px);margin-bottom:16px}
+.study p{color:#c6cfdf;margin-bottom:26px;max-width:30em}
+.study .fact{display:flex;gap:18px;align-items:center;padding:18px 20px;border-radius:14px;background:rgba(255,255,255,.07);margin-bottom:28px}
+.study .fact b{font:800 40px Montserrat,sans-serif;color:var(--orange);letter-spacing:-.03em;line-height:1}
+.study .fact span{font-size:15px;color:#dbe2ee}
+.study .im{background-size:cover;background-position:center;min-height:360px}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:210px 210px;gap:14px}
+.gallery button{border:0;padding:0;cursor:zoom-in;border-radius:14px;background-size:cover;background-position:center;transition:filter .2s}
+.gallery button:hover{filter:brightness(.9)}
+.gallery button:first-child{grid-row:span 2}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1.5fr;gap:64px}
+.faq h2{font-size:clamp(30px,3.8vw,46px)}
+.faq aside p{color:var(--slate);margin-top:16px}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;font-weight:600;font-size:18px;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:30px;width:10px;height:10px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);transition:transform .2s}
+details[open] summary::after{transform:rotate(-135deg);top:34px}
+details p{color:var(--slate);padding-bottom:22px;max-width:36em}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contact h2{font-size:clamp(30px,3.8vw,46px);margin-bottom:14px}
+.contact .lead{color:var(--slate);margin-bottom:30px}
+.ways a{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.ways a:hover b{color:var(--orange-deep)}
+.ways span{color:var(--slate);font-size:15px}
+.ways b{font-weight:600;font-size:18px;text-align:right;word-break:break-word}
+.callcard{background:var(--orange);border-radius:22px;padding:40px;position:relative;overflow:hidden}
+.callcard::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:30px solid rgba(255,255,255,.25)}
+.callcard h3{font-size:26px;margin-bottom:10px;position:relative}
+.callcard p{margin-bottom:24px;max-width:22em;position:relative}
+.callcard .nums{display:grid;gap:10px;position:relative}
+.callcard .nums a{display:block;background:#fff;border-radius:12px;padding:16px 20px;font:800 24px Montserrat,sans-serif;text-decoration:none;letter-spacing:-.02em;transition:background .2s,color .2s}
+.callcard .nums a:hover{background:var(--ink);color:#fff}
+
+footer{background:var(--ink);color:#c6cfdf;padding:54px 0 36px;font-size:15px}
+footer .top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:start}
+footer strong{font:800 24px Montserrat,sans-serif;color:#fff;display:block;margin-bottom:6px;letter-spacing:-.03em}
+footer strong span{color:var(--orange)}
+footer nav{display:flex;gap:22px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+footer .lang{background:rgba(255,255,255,.08)}
+footer .lang button{color:#c6cfdf}
+footer .lang button[aria-pressed="true"]{background:#fff;color:var(--ink)}
+footer .bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px}
+
+/* floating */
+.float{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;flex-direction:column;gap:10px}
+.float a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(20,33,61,.5);transition:transform .2s}
+.float a:hover{transform:scale(1.06)}
+.float a svg{width:24px;height:24px}
+.float .call{background:var(--orange)}
+.float .fb{background:var(--ink)}
+.mbar{display:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:70;background:rgba(10,16,30,.92);display:none;place-items:center;padding:24px}
+.lb.on{display:grid}
+.lb div{width:min(1000px,100%);aspect-ratio:3/2;background-size:contain;background-repeat:no-repeat;background-position:center}
+.lb button{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;font-size:22px;cursor:pointer}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(20,33,61,.45);opacity:0;pointer-events:none;transition:opacity .3s;z-index:60}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(480px,100%);background:#fff;z-index:61;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1);overflow-y:auto;overscroll-behavior:contain}
+.drawer.on{transform:none}
+.drawer .cover{height:240px;background-size:cover;background-position:center;position:relative}
+.drawer .close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:50%;border:0;background:#fff;cursor:pointer;font-size:22px;line-height:1;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.drawer .in{padding:28px 30px 36px}
+.drawer .kicker{font-size:14px;color:var(--slate)}
+.drawer h3{font-size:26px;margin:6px 0 20px}
+.drawer h4{font-size:16px;margin:26px 0 12px}
+.drawer .meta{display:flex;flex-wrap:wrap;gap:10px 32px;font-size:15px}
+.drawer .meta span{display:block;color:var(--slate);font-size:13px}
+.drawer .meta b{font-weight:600}
+.hl{list-style:none;display:grid;gap:8px}
+.hl li{padding-left:26px;position:relative}
+.hl li::before{content:"";position:absolute;left:2px;top:8px;width:12px;height:7px;border-left:2.5px solid var(--orange-deep);border-bottom:2.5px solid var(--orange-deep);transform:rotate(-45deg)}
+.incl{display:flex;flex-wrap:wrap;gap:8px}
+.incl span{background:var(--sky);padding:7px 12px;border-radius:8px;font-size:14px}
+.pricebox{margin-top:26px;padding:6px 20px;border-radius:14px;background:var(--cream)}
+.pricebox div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0}
+.pricebox div+div{border-top:1px solid rgba(224,142,0,.25)}
+.pricebox span{font-size:14px;color:var(--slate)}
+.pricebox b{font:800 20px Montserrat,sans-serif;letter-spacing:-.02em;text-align:right}
+.pricebox b.ask{font-family:var(--head)}
+.drawer .acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.drawer .acts .btn:first-child{grid-column:1/-1}
+.drawer .note{font-size:13px;color:var(--slate);margin-top:14px}
+
+.draft{position:fixed;left:16px;bottom:16px;z-index:50;background:#fff;border:1px solid var(--line);font-size:13px;padding:7px 11px;border-radius:8px;color:var(--slate);box-shadow:0 6px 18px -8px rgba(20,33,61,.3)}
+
+@media (max-width:1100px){
+  .nav .wrap{gap:20px}
+  .nav nav{gap:18px}
+  .ctry{grid-template-columns:repeat(4,1fr)}
+  .row-head,.drow{grid-template-columns:100px 150px 1fr 170px 130px;gap:14px}
+}
+@media (max-width:1000px){
+  .nav nav,.nav .phone{display:none}
+  .menu{display:block}
+  .nav.open nav{display:flex;flex-direction:column;position:absolute;top:76px;left:0;right:0;background:#fff;padding:18px 24px 26px;gap:16px;border-bottom:1px solid var(--line);box-shadow:0 20px 30px -20px rgba(20,33,61,.3)}
+  .nav.open nav a{font-family:var(--head);font-weight:700;font-size:20px;color:var(--ink)}
+  .nav.open nav a::after{display:none}
+  .hero .wrap,.about,.faq,.contact,.study{grid-template-columns:1fr}
+  .photos{height:430px;max-width:560px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .row-head{display:none}
+  .drow{grid-template-columns:auto 1fr auto;grid-template-areas:"date dest status" "trip trip price";gap:12px 16px}
+  .drow .c-date{grid-area:date}.drow .dest-cell{grid-area:dest}.drow .trip{grid-area:trip}.drow .dprice{grid-area:price;text-align:right}.drow .dstatus{grid-area:status}
+  .ctry{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:0 24px 8px;margin:0 -24px;scrollbar-width:none}
+  .ctry::-webkit-scrollbar{display:none}
+  .ctry button{flex:0 0 200px;scroll-snap-align:start}
+  .about .im{aspect-ratio:16/10}
+  .toolbar{flex-direction:column;align-items:stretch}
+  .finder input{width:100%}
+  .finder label{flex:1}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .sec{padding:70px 0}
+  .nav .wrap{gap:10px;height:68px}
+  .nav.open nav{top:68px}
+  .logo{gap:8px}
+  .logo svg{width:34px;height:34px}
+  .logo strong{font-size:17px;white-space:nowrap}
+  .logo small{display:none}
+  .lang button{padding:6px 7px;min-width:30px;font-size:12.5px}
+  .trust b{font-size:22px}
+  .hero{padding:32px 0 70px}
+  .photos{height:350px}
+  .stamp{width:100px;height:100px;font-size:11px}
+  .trust{gap:22px}
+  .board{padding:24px 18px;border-radius:20px;margin:0 -8px}
+  .clock{display:none}
+  .drow{grid-template-columns:1fr auto;grid-template-areas:"date status" "dest dest" "trip trip" "price price"}
+  .drow .dprice{text-align:left}
+  .flap i{width:19px;height:28px;font-size:17px}
+  .grid{grid-template-columns:1fr}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;margin:0 -24px;padding:0 24px 4px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .finder{flex-direction:column}
+  .finder select{width:100%}
+  .ctry button{flex-basis:170px}
+  .about dl{grid-template-columns:1fr}
+  .study .tx{padding:38px 24px}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:190px 130px 130px}
+  .gallery button:first-child{grid-column:span 2;grid-row:auto}
+  .callcard{padding:30px 24px}
+  .float{display:none}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .mbar a{padding:13px;font-size:15px}
+  body{padding-bottom:74px}
+  .draft{bottom:86px}
+  .drawer .in{padding:24px 22px 32px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="DA.am World">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#ffa500"/><path d="M8 22c6-1 10-6 12-12 1 6 5 10 12 11-7 1-11 5-12 11-2-6-6-9-12-10z" fill="#14213d"/></svg>
+      <div><strong>DA.am <span>World</span></strong><small>Study &amp; Travel</small></div>
+    </a>
+    <nav id="links">
+      <a href="#programs" data-i18n="nav.tours">Аяллууд</a>
+      <a href="#countries" data-i18n="nav.countries">Чиглэл</a>
+      <a href="#study" data-i18n="nav.study">Тэтгэлэг</a>
+      <a href="#about" data-i18n="nav.about">Бидний тухай</a>
+      <a href="#contact" data-i18n="nav.contact">Холбоо барих</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="mn" lang="mn" aria-pressed="true">МН</button>
+      <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button>
+    </div>
+    <a href="tel:72100248" class="phone">7210-0248</a>
+    <button class="menu" id="menu" data-i18n-aria="menu" aria-label="Цэс" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <button type="button" class="next" id="next" hidden></button>
+      <h1 data-i18n-html="hero.title">Гэр бүлээрээ, хамт олноороо аялаарай</h1>
+      <p class="lead" data-i18n="hero.lead">Хятад, Солонгос, Япон, Дубай болон бусад чиглэлд аялал, круйз, бизнес аялал зохион байгуулж, бакалавр, магистрын 100% тэтгэлэгт бүртгэдэг.</p>
+      <div class="actions">
+        <a href="#upcoming" class="btn" data-i18n="hero.cta1">Удахгүй хөөрөх аяллууд</a>
+        <a href="tel:72100248" class="btn line" data-i18n="hero.cta2">Утсаар лавлах</a>
+      </div>
+      <div class="trust">
+        <div><b>7</b><span data-i18n="stat.1">улс руу аялал</span></div>
+        <div><b>90</b><span data-i18n="stat.2">оюутныг дадлагад хүргэсэн</span></div>
+        <div><b>100%</b><span data-i18n="stat.3">тэтгэлэгт хөтөлбөр</span></div>
+      </div>
+    </div>
+    <div class="photos" aria-hidden="true">
+      <figure class="pc a"><div id="phA"></div><figcaption data-i18n="cap.1">Далайн амралт</figcaption></figure>
+      <figure class="pc b"><div id="phB"></div><figcaption data-i18n="cap.2">Цагаан хэрэм</figcaption></figure>
+      <div class="stamp">DA.am<br>World<br>Study &amp;<br>Travel</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sky" id="upcoming" style="padding:72px 0">
+  <div class="wrap">
+    <div class="board">
+      <div class="board-top">
+        <div>
+          <h2 data-i18n="board.title">Удахгүй хөөрөх</h2>
+          <p data-i18n="board.sub">Мөр дээр дарж дэлгэрэнгүйг үзээрэй.</p>
+        </div>
+        <div class="clock" aria-hidden="true"><span data-i18n="city.ub">Улаанбаатар</span><b id="clock">--:--</b></div>
+      </div>
+      <div class="row-head" aria-hidden="true"><span data-i18n="board.h1">Огноо</span><span data-i18n="board.h2">Хаашаа</span><span data-i18n="board.h3">Аялал</span><span data-i18n="board.h4">Үнэ</span><span data-i18n="board.h5">Төлөв</span></div>
+      <div class="rows" id="board"></div>
+      <p class="board-foot" data-i18n="note.price">Үнэ, хугацаа өөрчлөгдөж болзошгүй тул утсаар лавлана уу.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="programs">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="prog.title">Манай аяллын хөтөлбөрүүд</h2>
+      <p data-i18n="prog.sub">Өмнө нь зохион байгуулсан аяллууд. Дахин явах огноог утсаар лавлаарай.</p>
+    </div>
+    <div class="toolbar">
+      <div class="tabs" id="tabs" role="group" data-i18n-aria="prog.types"></div>
+      <div class="finder">
+        <label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" id="q" data-i18n-ph="prog.search" data-i18n-aria="prog.search" placeholder="Хот, улсаар хайх" autocomplete="off"></label>
+        <select id="cSel" data-i18n-aria="prog.country"></select>
+      </div>
+    </div>
+    <p class="result-note" id="resultNote" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+    <div class="more"><button class="btn line" id="moreBtn" type="button"></button></div>
+    <p class="disclaimer" data-i18n="note.price">Үнэ, хугацаа өөрчлөгдөж болзошгүй тул утсаар лавлана уу.</p>
+  </div>
+</section>
+
+<section class="sec sky" id="countries">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="ctry.title">7 улс руу аялдаг</h2>
+      <p data-i18n="ctry.sub">Улс дээр дарж тухайн чиглэлийн аяллуудыг харна уу.</p>
+    </div>
+    <div class="ctry" id="ctry"></div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap about">
+    <div class="im" id="aboutIm" role="img" data-i18n-aria="img.travellers"></div>
+    <div>
+      <h2 data-i18n="about.title">Бидний тухай</h2>
+      <p class="lead" data-i18n="about.lead">DA.am World Study &amp; Travel нь аялал, круйз, бизнес аялал зохион байгуулж, бакалавр, магистрын 100% тэтгэлэгт хөтөлбөрт бүртгэдэг компани.</p>
+      <dl>
+        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5M9 10h.01M15 10h.01"/></svg><span data-i18n="f1.t">4–5 одтой буудал</span></dt><dd data-i18n="f1.d">Ихэнх аялалд тав тухтай зочид буудал багтдаг.</dd></div>
+        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg><span data-i18n="f2.t">Хөтөч, орчуулагчтай</span></dt><dd data-i18n="f2.d">Аяллын турш хөтөч, орчуулагч дагалдана.</dd></div>
+        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-3.5 7-9V5l-7-2.5L5 5v7c0 5.5 7 9 7 9z"/><path d="m9 12 2 2 4-4"/></svg><span data-i18n="f3.t">Даатгал, автобус</span></dt><dd data-i18n="f3.d">Аяллын даатгал, автобусны үйлчилгээ ихэвчлэн үнэд багтдаг.</dd></div>
+        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c1.9.8 3.1 2.6 3.5 5.2"/></svg><span data-i18n="f4.t">5-аас дээш бол хямдарна</span></dt><dd data-i18n="f4.d">Гэр бүл эсвэл хамт олноороо 5-аас дээш хүн явбал үнэ хямдарна.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="study" style="padding-top:0">
+  <div class="wrap">
+    <div class="study">
+      <div class="tx">
+        <h2 data-i18n="study.title">100% тэтгэлэгтэй суралцах</h2>
+        <p data-i18n="study.text">Бакалавр, магистрын 100% тэтгэлэгт хөтөлбөрт бүртгэж, их сургуулиудын оюутны дадлагын аялал зохион байгуулдаг.</p>
+        <div class="fact"><b>90</b><span data-i18n="study.fact">2024 оны 5-р сарын 25-нд ХААИС-ийн 90 оюутныг дадлагын аялалд хүргэсэн</span></div>
+        <a href="https://daamworld.net" target="_blank" rel="noopener" class="btn" data-i18n="study.cta">daamworld.net сайтад орох</a>
+      </div>
+      <div class="im" id="studyIm" role="img" data-i18n-aria="img.uni"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="gal.title">Аяллын зургаас</h2>
+      <a class="link" href="https://www.facebook.com/profile.php?id=61553919472117&amp;sk=photos_by" target="_blank" rel="noopener" data-i18n="gal.fb">Facebook хуудсанд бүх зургийг үзэх</a>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<section class="sec sky" id="faq">
+  <div class="wrap faq">
+    <aside>
+      <h2 data-i18n="faq.title">Асуулт хариулт</h2>
+      <p data-i18n-html="faq.sub">Өөр асуулт байвал <a class="link" href="tel:72100248">7210-0248</a> дугаарт залгаарай.</p>
+    </aside>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="wrap contact">
+    <div>
+      <h2 data-i18n="contact.title">Холбоо барих</h2>
+      <p class="lead" data-i18n="contact.lead">Аяллын огноо, үнэ, нөхцөлийн талаар утсаар эсвэл Facebook-ээр лавлаарай.</p>
+      <div class="ways">
+        <a href="mailto:tourdaam@gmail.com"><span data-i18n="contact.email">Имэйл</span><b>tourdaam@gmail.com</b></a>
+        <a href="https://www.facebook.com/profile.php?id=61553919472117" target="_blank" rel="noopener"><span>Facebook</span><b>DA.am World Study&amp;Travel</b></a>
+        <a href="https://daamworld.net" target="_blank" rel="noopener"><span data-i18n="contact.sch">Тэтгэлэг</span><b>daamworld.net</b></a>
+      </div>
+    </div>
+    <div class="callcard">
+      <h3 data-i18n="call.title">Утсаар лавлах</h3>
+      <p data-i18n="call.text">Дугаар дээр дарж шууд залгана уу.</p>
+      <div class="nums">
+        <a href="tel:72100248">7210-0248</a>
+        <a href="tel:99065453">9906-5453</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div><strong>DA.am <span>World</span></strong>Study &amp; Travel</div>
+      <nav>
+        <a href="#programs" data-i18n="nav.tours">Аяллууд</a>
+        <a href="#countries" data-i18n="nav.countries">Чиглэл</a>
+        <a href="#study" data-i18n="nav.study">Тэтгэлэг</a>
+        <a href="#faq" data-i18n="faq.title">Асуулт хариулт</a>
+        <a href="https://www.facebook.com/profile.php?id=61553919472117" target="_blank" rel="noopener">Facebook</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="mn" lang="mn" aria-pressed="true">МН</button>
+        <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="zh" lang="zh" aria-pressed="false">中文</button>
+      </div>
+    </div>
+    <div class="bottom"><span>© 2026 DA.am World Study &amp; Travel &nbsp; <a href="tel:72100248">7210-0248</a> / <a href="tel:99065453">9906-5453</a></span><span data-i18n="foot.note">Үнэ, хугацаа өөрчлөгдөж болзошгүй.</span></div>
+  </div>
+</footer>
+
+<div class="float">
+  <a class="fb" href="https://www.facebook.com/profile.php?id=61553919472117" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="#fff"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.2C16.7 2.1 15.7 2 14.6 2 12.2 2 10.6 3.4 10.6 6.1v2.4H8V12h2.6v10H14V12h2.7l.4-3.5z"/></svg></a>
+  <a class="call" href="tel:72100248" data-i18n-aria="call.aria" aria-label="7210-0248"><svg viewBox="0 0 24 24" fill="#14213d"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
+</div>
+<div class="mbar">
+  <a class="btn" href="tel:72100248" data-i18n="mbar.call">Залгах</a>
+  <a class="btn line" href="https://www.facebook.com/profile.php?id=61553919472117" target="_blank" rel="noopener">Facebook</a>
+</div>
+<div class="lb" id="lb" role="dialog" aria-modal="true"><button type="button" id="lbClose" data-i18n-aria="close" aria-label="Хаах">&times;</button><div id="lbImg"></div></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+<div class="draft" data-i18n="draft">Зургууд жишээ</div>
+
+<script>
+/* =========================================================
+   Хэл / Language / 语言
+   ========================================================= */
+const LANGS = ['mn','en','zh'];
+let lang = 'mn';
+const L = (mn, en, zh) => ({mn, en, zh});
+const T = v => v == null ? '' : (typeof v === 'string' ? v : (v[lang] ?? v.mn));
+
+const I18N = {
+  mn: {
+    'meta.title':'DA.am World Study & Travel — аялал, круйз, тэтгэлэг',
+    'meta.desc':'Хятад, Солонгос, Япон, Дубай, Вьетнам, Тайланд, Турк руу аялал, круйз, бизнес аялал. Бакалавр, магистрын 100% тэтгэлэг.',
+    'nav.tours':'Аяллууд','nav.countries':'Чиглэл','nav.study':'Тэтгэлэг','nav.about':'Бидний тухай','nav.contact':'Холбоо барих',
+    'menu':'Цэс','close':'Хаах',
+    'hero.title':'Гэр бүлээрээ, хамт олноороо аялаарай',
+    'hero.lead':'Хятад, Солонгос, Япон, Дубай болон бусад чиглэлд аялал, круйз, бизнес аялал зохион байгуулж, бакалавр, магистрын 100% тэтгэлэгт бүртгэдэг.',
+    'hero.cta1':'Удахгүй хөөрөх аяллууд','hero.cta2':'Утсаар лавлах','hero.next':'Дараагийн аялал',
+    'stat.1':'улс руу аялал','stat.2':'оюутныг дадлагад хүргэсэн','stat.3':'тэтгэлэгт хөтөлбөр',
+    'cap.1':'Далайн амралт','cap.2':'Цагаан хэрэм',
+    'board.title':'Удахгүй хөөрөх','board.sub':'Мөр дээр дарж дэлгэрэнгүйг үзээрэй.',
+    'board.h1':'Огноо','board.h2':'Хаашаа','board.h3':'Аялал','board.h4':'Үнэ','board.h5':'Төлөв',
+    'board.empty':'Шинэ аялал удахгүй зарлагдана. <a href="https://www.facebook.com/profile.php?id=61553919472117" target="_blank" rel="noopener">Facebook хуудсаа</a> дагаарай.',
+    'city.ub':'Улаанбаатар','status.open':'Бүртгэж байна',
+    'note.price':'Үнэ, хугацаа өөрчлөгдөж болзошгүй тул утсаар лавлана уу.',
+    'prog.title':'Манай аяллын хөтөлбөрүүд','prog.sub':'Өмнө нь зохион байгуулсан аяллууд. Дахин явах огноог утсаар лавлаарай.',
+    'prog.types':'Аяллын төрөл','prog.search':'Хот, улсаар хайх','prog.country':'Улс','prog.allc':'Бүх улс',
+    'prog.found':'{n} аялал олдлоо.','prog.clear':'Шүүлтүүр арилгах','prog.none':'Тохирох аялал олдсонгүй.',
+    'prog.more':'Бүх {n} аяллыг харах','prog.less':'Цөөн харуулах',
+    'type.all':'Бүгд','type.leisure':'Амралт','type.cruise':'Круйз','type.health':'Эрүүл мэнд','type.business':'Бизнес','type.free':'Чөлөөт',
+    'price.p':'Үнэ','price.adult':'Том хүн','price.kid':'Хүүхэд','price.s4':'4 одтой буудал','price.s5':'5 одтой буудал','price.ask':'Лавлах',
+    'ctry.title':'7 улс руу аялдаг','ctry.sub':'Улс дээр дарж тухайн чиглэлийн аяллуудыг харна уу.','ctry.n':'{n} аялал',
+    'about.title':'Бидний тухай',
+    'about.lead':'DA.am World Study & Travel нь аялал, круйз, бизнес аялал зохион байгуулж, бакалавр, магистрын 100% тэтгэлэгт хөтөлбөрт бүртгэдэг компани.',
+    'f1.t':'4–5 одтой буудал','f1.d':'Ихэнх аялалд тав тухтай зочид буудал багтдаг.',
+    'f2.t':'Хөтөч, орчуулагчтай','f2.d':'Аяллын турш хөтөч, орчуулагч дагалдана.',
+    'f3.t':'Даатгал, автобус','f3.d':'Аяллын даатгал, автобусны үйлчилгээ ихэвчлэн үнэд багтдаг.',
+    'f4.t':'5-аас дээш бол хямдарна','f4.d':'Гэр бүл эсвэл хамт олноороо 5-аас дээш хүн явбал үнэ хямдарна.',
+    'study.title':'100% тэтгэлэгтэй суралцах',
+    'study.text':'Бакалавр, магистрын 100% тэтгэлэгт хөтөлбөрт бүртгэж, их сургуулиудын оюутны дадлагын аялал зохион байгуулдаг.',
+    'study.fact':'2024 оны 5-р сарын 25-нд ХААИС-ийн 90 оюутныг дадлагын аялалд хүргэсэн',
+    'study.cta':'daamworld.net сайтад орох',
+    'gal.title':'Аяллын зургаас','gal.fb':'Facebook хуудсанд бүх зургийг үзэх','gal.zoom':'Зургийг томруулах',
+    'faq.title':'Асуулт хариулт','faq.sub':'Өөр асуулт байвал <a class="link" href="tel:72100248">7210-0248</a> дугаарт залгаарай.',
+    'contact.title':'Холбоо барих','contact.lead':'Аяллын огноо, үнэ, нөхцөлийн талаар утсаар эсвэл Facebook-ээр лавлаарай.',
+    'contact.email':'Имэйл','contact.sch':'Тэтгэлэг',
+    'call.title':'Утсаар лавлах','call.text':'Дугаар дээр дарж шууд залгана уу.','call.aria':'7210-0248 руу залгах',
+    'foot.note':'Үнэ, хугацаа өөрчлөгдөж болзошгүй.','mbar.call':'Залгах','draft':'Зургууд жишээ',
+    'img.travellers':'Аялагчид','img.uni':'Их сургууль',
+    'd.when':'Хэзээ','d.ran':'Зохион байгуулсан','d.days':'Хугацаа','d.hl':'Хөтөлбөрт',
+    'd.nohl':'Хөтөлбөр, үнийг утсаар лавлана уу.','d.incl':'Манай аялалд ихэвчлэн багтдаг',
+    'd.call':'{p} руу залгах','d.copy':'Холбоос хуулах','d.copied':'Хуулагдлаа',
+    'd.past':'Энэ аялал өмнө зохион байгуулагдсан.','d.group':'5-аас дээш хүн бол хямдарна.',
+    'd.phone':'Энэ аяллын зар дээр бичигдсэн утас: {p}','d.label':'Аяллын дэлгэрэнгүй'
+  },
+  en: {
+    'meta.title':'DA.am World Study & Travel — tours, cruises, scholarships',
+    'meta.desc':'Tours, cruises and business trips to China, Korea, Japan, Dubai, Vietnam, Thailand and Türkiye. Fully funded bachelor’s and master’s scholarships.',
+    'nav.tours':'Tours','nav.countries':'Destinations','nav.study':'Scholarships','nav.about':'About us','nav.contact':'Contact',
+    'menu':'Menu','close':'Close',
+    'hero.title':'Travel together, with family or your whole team',
+    'hero.lead':'We organise tours, cruises and business trips to China, Korea, Japan, Dubai and beyond, and register students for fully funded bachelor’s and master’s scholarships.',
+    'hero.cta1':'Upcoming departures','hero.cta2':'Call us','hero.next':'Next trip',
+    'stat.1':'countries','stat.2':'students on a study trip','stat.3':'funded scholarships',
+    'cap.1':'Seaside holidays','cap.2':'The Great Wall',
+    'board.title':'Upcoming departures','board.sub':'Tap a row for details.',
+    'board.h1':'Date','board.h2':'To','board.h3':'Trip','board.h4':'Price','board.h5':'Status',
+    'board.empty':'New departures are coming soon. Follow our <a href="https://www.facebook.com/profile.php?id=61553919472117" target="_blank" rel="noopener">Facebook page</a>.',
+    'city.ub':'Ulaanbaatar','status.open':'Registration open',
+    'note.price':'Prices and dates may change. Please call to confirm.',
+    'prog.title':'Our tour programmes','prog.sub':'Tours we have run before. Call us for the next dates.',
+    'prog.types':'Tour type','prog.search':'Search by city or country','prog.country':'Country','prog.allc':'All countries',
+    'prog.found':'{n} tours found.','prog.clear':'Clear filters','prog.none':'No tours match your search.',
+    'prog.more':'Show all {n} tours','prog.less':'Show fewer',
+    'type.all':'All','type.leisure':'Leisure','type.cruise':'Cruise','type.health':'Health','type.business':'Business','type.free':'Independent',
+    'price.p':'Price','price.adult':'Adult','price.kid':'Child','price.s4':'4-star hotel','price.s5':'5-star hotel','price.ask':'Ask us',
+    'ctry.title':'7 countries','ctry.sub':'Pick a country to see its tours.','ctry.n':'{n} tours',
+    'about.title':'About us',
+    'about.lead':'DA.am World Study & Travel organises tours, cruises and business trips, and registers students for fully funded bachelor’s and master’s scholarships.',
+    'f1.t':'4–5 star hotels','f1.d':'Most tours include a comfortable hotel.',
+    'f2.t':'Guide and interpreter','f2.d':'A guide and an interpreter travel with the group.',
+    'f3.t':'Insurance and coach','f3.d':'Travel insurance and coach transport are usually included.',
+    'f4.t':'Group discount','f4.d':'Families or groups of five or more get a lower price.',
+    'study.title':'Study on a full scholarship',
+    'study.text':'We register students for fully funded bachelor’s and master’s programmes and organise university study trips.',
+    'study.fact':'On 25 May 2024 we took 90 students from the Mongolian University of Life Sciences on a study trip',
+    'study.cta':'Visit daamworld.net',
+    'gal.title':'From our trips','gal.fb':'See all photos on Facebook','gal.zoom':'Enlarge photo',
+    'faq.title':'Questions','faq.sub':'Something else? Call <a class="link" href="tel:72100248">7210-0248</a>.',
+    'contact.title':'Contact','contact.lead':'Ask us about dates, prices and terms by phone or on Facebook.',
+    'contact.email':'Email','contact.sch':'Scholarships',
+    'call.title':'Call us','call.text':'Tap a number to call.','call.aria':'Call 7210-0248',
+    'foot.note':'Prices and dates may change.','mbar.call':'Call','draft':'Sample photos',
+    'img.travellers':'Travellers','img.uni':'University',
+    'd.when':'When','d.ran':'Previously ran','d.days':'Duration','d.hl':'Highlights',
+    'd.nohl':'Call us for the itinerary and price.','d.incl':'Usually included',
+    'd.call':'Call {p}','d.copy':'Copy link','d.copied':'Link copied',
+    'd.past':'This tour has run before.','d.group':'Groups of five or more get a discount.',
+    'd.phone':'Phone listed on this tour’s announcement: {p}','d.label':'Tour details'
+  },
+  zh: {
+    'meta.title':'DA.am World Study & Travel — 旅游、邮轮、奖学金',
+    'meta.desc':'前往中国、韩国、日本、迪拜、越南、泰国、土耳其的旅游、邮轮和商务考察，以及本科、硕士全额奖学金。',
+    'nav.tours':'旅游线路','nav.countries':'目的地','nav.study':'奖学金','nav.about':'关于我们','nav.contact':'联系我们',
+    'menu':'菜单','close':'关闭',
+    'hero.title':'和家人、同事<br>一起去旅行',
+    'hero.lead':'我们组织前往中国、韩国、日本、迪拜等地的旅游、邮轮和商务考察，并为学生办理本科、硕士全额奖学金申请。',
+    'hero.cta1':'近期出发','hero.cta2':'电话咨询','hero.next':'下一期',
+    'stat.1':'个国家','stat.2':'名学生参加实习考察','stat.3':'全额奖学金',
+    'cap.1':'海滨度假','cap.2':'长城',
+    'board.title':'近期出发','board.sub':'点击查看详情。',
+    'board.h1':'日期','board.h2':'目的地','board.h3':'线路','board.h4':'价格','board.h5':'状态',
+    'board.empty':'新线路即将发布，请关注我们的 <a href="https://www.facebook.com/profile.php?id=61553919472117" target="_blank" rel="noopener">Facebook 主页</a>。',
+    'city.ub':'乌兰巴托','status.open':'报名中',
+    'note.price':'价格和日期可能变动，请致电确认。',
+    'prog.title':'我们的旅游线路','prog.sub':'以下为往期线路，下一期日期请致电咨询。',
+    'prog.types':'线路类型','prog.search':'按城市或国家搜索','prog.country':'国家','prog.allc':'全部国家',
+    'prog.found':'共找到 {n} 条线路。','prog.clear':'清除筛选','prog.none':'没有符合条件的线路。',
+    'prog.more':'查看全部 {n} 条线路','prog.less':'收起',
+    'type.all':'全部','type.leisure':'休闲度假','type.cruise':'邮轮','type.health':'健康体检','type.business':'商务考察','type.free':'自由行',
+    'price.p':'价格','price.adult':'成人','price.kid':'儿童','price.s4':'四星级酒店','price.s5':'五星级酒店','price.ask':'咨询',
+    'ctry.title':'7 个国家','ctry.sub':'点击国家查看相关线路。','ctry.n':'{n} 条线路',
+    'about.title':'关于我们',
+    'about.lead':'DA.am World Study & Travel 组织旅游、邮轮和商务考察，并为学生办理本科、硕士全额奖学金申请。',
+    'f1.t':'四至五星级酒店','f1.d':'大多数线路含舒适的酒店住宿。',
+    'f2.t':'导游和翻译','f2.d':'全程有导游和翻译陪同。',
+    'f3.t':'保险和大巴','f3.d':'通常包含旅游保险和大巴交通。',
+    'f4.t':'团体优惠','f4.d':'家庭或5人以上团体享受优惠价。',
+    'study.title':'全额奖学金留学',
+    'study.text':'我们为学生办理本科、硕士全额奖学金申请，并组织大学生实习考察。',
+    'study.fact':'2024年5月25日，我们带领蒙古国立生命科学大学90名学生参加实习考察',
+    'study.cta':'访问 daamworld.net',
+    'gal.title':'旅途瞬间','gal.fb':'在 Facebook 上查看全部照片','gal.zoom':'放大照片',
+    'faq.title':'常见问题','faq.sub':'其他问题请致电 <a class="link" href="tel:72100248">7210-0248</a>。',
+    'contact.title':'联系我们','contact.lead':'关于日期、价格和条件，欢迎电话或在 Facebook 上咨询。',
+    'contact.email':'邮箱','contact.sch':'奖学金',
+    'call.title':'电话咨询','call.text':'点击号码直接拨打。','call.aria':'拨打 7210-0248',
+    'foot.note':'价格和日期可能变动。','mbar.call':'拨打电话','draft':'示例图片',
+    'img.travellers':'游客','img.uni':'大学',
+    'd.when':'时间','d.ran':'往期日期','d.days':'行程','d.hl':'行程亮点',
+    'd.nohl':'行程和价格请致电咨询。','d.incl':'通常包含',
+    'd.call':'拨打 {p}','d.copy':'复制链接','d.copied':'已复制',
+    'd.past':'此线路为往期线路。','d.group':'5人以上享受优惠。',
+    'd.phone':'此线路公告所列电话：{p}','d.label':'线路详情'
+  }
+};
+const t = (k, vars = {}) => {
+  let s = I18N[lang][k] ?? I18N.mn[k] ?? k;
+  for (const [a, b] of Object.entries(vars)) s = s.split('{' + a + '}').join(b);
+  return s;
+};
+
+/* =========================================================
+   Зураг (жишээ) — бодит зургаар солихдоо P-г өөрчилнө
+   ========================================================= */
+const FALL = ['#14213d,#ffa500','#2d4a7a,#ffc65c','#14213d,#e08e00','#3d5a80,#ffa500'];
+const pic = (id, i = 0) => `url(https://images.unsplash.com/${id}?auto=format&fit=crop&w=1400&q=70), linear-gradient(135deg,${FALL[i % 4]})`;
+const P = {
+  beach:'photo-1507525428034-b723cf961d3e', wall:'photo-1508804185872-d7badad00f7d',
+  city:'photo-1474181487882-5abf3f0ba6c2', cruise:'photo-1548574505-5e239809ee19',
+  japan:'photo-1540959733332-eab4deabeeaf', korea:'photo-1538485399081-7191377e8241',
+  dubai:'photo-1512453979798-5ea266f8880c', thai:'photo-1528181304800-259b08848526',
+  viet:'photo-1528127269322-539801943592', turkey:'photo-1524231757912-21f4fe3a7200',
+  mount:'photo-1501785888041-af3ef285b470', people:'photo-1469854523086-cc02fe5d8800',
+  uni:'photo-1523050854058-8df90110c9f1', lake:'photo-1476514525535-07fb3b4ae5f1',
+  factory:'photo-1565043666747-69f6646db940'
+};
+
+/* =========================================================
+   Өгөгдөл (Facebook-ийн постуудаас)
+   ========================================================= */
+const D = (d, n) => L(`${d} өдөр ${n} шөнө`, `${d} days, ${n} nights`, `${d}天${n}晚`);
+const S24 = L('2024 зун', 'Summer 2024', '2024年夏季');
+const FROM = v => L(v + '-с', 'from ' + v, v + '起');
+const PL = {
+  cn:L('Хятад','China','中国'), kr:L('Солонгос','South Korea','韩国'), jp:L('Япон','Japan','日本'),
+  ae:L('АНЭУ','UAE','阿联酋'), vn:L('Вьетнам','Vietnam','越南'), th:L('Тайланд','Thailand','泰国'), tr:L('Турк','Türkiye','土耳其')
+};
+const city = {
+  sha:L('Шанхай','Shanghai','上海'), can:L('Гуанжоу','Guangzhou','广州'), tsn:L('Тяньжин','Tianjin','天津'),
+  syx:L('Саньяа','Sanya','三亚'), hai:L('Хайнан','Hainan','海南'), dyg:L('Жанжиажэ','Zhangjiajie','张家界'),
+  bdh:L('Бэйдайхэ','Beidaihe','北戴河'), zjk:L('Жанжиакоу','Zhangjiakou','张家口'), pek:L('Бээжин','Beijing','北京'),
+  het:L('Хөх хот','Hohhot','呼和浩特'), dat:L('Датон','Datong','大同'), she:L('Шэньян','Shenyang','沈阳'),
+  dxb:L('Дубай','Dubai','迪拜')
+};
+const FB = 'https://www.facebook.com/profile.php?id=61553919472117';
+const PARTNER = ['8829-6044','9900-1205'];
+
+const UPCOMING = [
+  {slug:'canton-fair-2026', code:'CAN', date:'2026-10-15', end:'2026-11-05', to:city.can, type:'business', countries:['cn'], img:P.factory,
+   title:L('Canton Fair 2026 бизнес аялал','Canton Fair 2026 business trip','2026年广交会商务考察'),
+   when:L('10.15 – 11.05, 3 үе','15 Oct – 5 Nov, in 3 phases','10月15日至11月5日，共三期'),
+   prices:[['p', L('Баг бүрдвэл хямдралтай','Group discount available','组团优惠')]], phones:PARTNER,
+   hl:[L('Гуанжоу хотод болох Canton Fair 2026','Canton Fair 2026 in Guangzhou','广州2026年广交会'), L('3 үе шаттай','Three phases','分三期')]},
+  {slug:'shanghai-disneyland', code:'PVG', date:'2026-10-30', end:'2026-11-05', to:city.sha, type:'leisure', countries:['cn'], img:P.city,
+   title:L('Шанхай — Disneyland аялал','Shanghai Disneyland tour','上海迪士尼之旅'),
+   when:L('10 сарын 30, ганцхан удаа','30 October, one departure only','10月30日，仅此一期'), days:D(7,6),
+   prices:[['adult','3,490,000₮'],['kid','2,990,000₮']],
+   hl:[L('Shanghai Disneyland','Shanghai Disneyland','上海迪士尼乐园'), L('Аквариум','Aquarium','海洋水族馆'),
+       L('Хуанпу мөрний круйз','Huangpu River cruise','黄浦江游船'), L('5 одтой буудал','5-star hotel','五星级酒店'), L('Шууд нислэг','Direct flight','直飞')]}
+];
+
+const PROGRAMS = [
+  {slug:'cruise-3-countries', type:'cruise', countries:['cn','jp','kr'], to:city.tsn, img:P.cruise,
+   title:L('3 улсын круйз','3-country cruise','三国邮轮'), sub:L('Тяньжин – Фукуока – Чэжү','Tianjin – Fukuoka – Jeju','天津—福冈—济州'),
+   when:L('2024 зун, 2024.12, 2025.03–04, 2025.11–12','Summer 2024, Dec 2024, Mar–Apr 2025, Nov–Dec 2025','2024年夏季、2024年12月、2025年3–4月、2025年11–12月'), days:D(8,7),
+   prices:[['p','2,390,000 – 2,990,000₮']],
+   hl:[L('15 давхар хөлөг онгоц','15-deck cruise ship','15层邮轮'), L('Шууд нислэг','Direct flight','直飞'), L('Фукуока, Чэжү','Fukuoka and Jeju','福冈、济州')]},
+  {slug:'cruise-2-countries', type:'cruise', countries:['cn','kr'], to:city.tsn, img:P.korea,
+   title:L('2 улсын круйз','2-country cruise','两国邮轮'), sub:L('Тяньжин – Инчон – Чэжү','Tianjin – Incheon – Jeju','天津—仁川—济州'),
+   when:L('2026.02','Feb 2026','2026年2月'), prices:[['p','2,190,000 – 3,690,000₮']],
+   hl:[L('Инчон, Чэжү','Incheon and Jeju','仁川、济州')]},
+  {slug:'hainan-sanya', type:'leisure', countries:['cn'], to:city.syx, img:P.beach,
+   title:L('Хайнан – Саньяа','Hainan – Sanya','海南三亚'), sub:L('Атлантис усан парк','Atlantis water park','亚特兰蒂斯水世界'),
+   when:L('2025.12 – 2026.02, долоо хоног бүр','Dec 2025 – Feb 2026, weekly','2025年12月至2026年2月，每周出发'),
+   prices:[['s4','3,590,000₮'],['s5','3,990,000₮']],
+   hl:[L('Шууд нислэг','Direct flight','直飞'), L('Атлантис усан парк','Atlantis water park','亚特兰蒂斯水世界')]},
+  {slug:'hainan-island', type:'leisure', countries:['cn'], to:city.hai, img:P.lake,
+   title:L('Хайнан арал','Hainan Island','海南岛'), sub:L('УБ-аас нислэгтэй','Flights from Ulaanbaatar','含乌兰巴托往返机票'),
+   when:L('2024 зун, 2025.02–03','Summer 2024, Feb–Mar 2025','2024年夏季、2025年2–3月'), days:D(8,7),
+   prices:[['adult','3,190,000₮'],['kid','2,790,000₮']],
+   hl:[L('Улаанбаатараас нислэгтэй','Flights from Ulaanbaatar','含乌兰巴托往返机票'), L('2024 оны зун 2,550,000₮-с','Summer 2024: from 2,550,000₮','2024年夏季：2,550,000₮起')]},
+  {slug:'hohhot-hainan', type:'leisure', countries:['cn'], to:city.hai, img:P.beach,
+   title:L('Хөх хот – Хайнан','Hohhot – Hainan','呼和浩特—海南'), sub:L('Хосолсон аялал','Combined tour','联游线路'),
+   when:L('2024.12 – 2025.01','Dec 2024 – Jan 2025','2024年12月至2025年1月'), prices:[['p','3,290,000₮']],
+   hl:[L('Хөх хот, Хайнан','Hohhot and Hainan','呼和浩特、海南')]},
+  {slug:'tianmen-mountain', type:'leisure', countries:['cn'], to:city.dyg, img:P.mount,
+   title:L('Тэнгэрийн хаалга','Tianmen Mountain (Heaven’s Gate)','天门山'), sub:L('Жанжиажэ','Zhangjiajie','张家界'),
+   when:L('2024 зун, 2025.05–06, долоо хоног бүр','Summer 2024, May–Jun 2025, weekly','2024年夏季、2025年5–6月，每周出发'),
+   prices:[['p','2,990,000₮']],
+   hl:[L('Шууд нислэг','Direct flight','直飞'), L('Шилэн гүүр','Glass bridge','玻璃桥'), L('Шар луугийн агуй','Yellow Dragon Cave','黄龙洞'), L('2024 оны зун 2,550,000₮-с','Summer 2024: from 2,550,000₮','2024年夏季：2,550,000₮起')]},
+  {slug:'beijing-beidaihe', type:'leisure', countries:['cn'], to:city.bdh, img:P.beach,
+   title:L('Бээжин – Бэйдайхэ','Beijing – Beidaihe','北京—北戴河'), sub:L('Усан парк, Universal','Water park and Universal Studios','水上乐园、环球影城'),
+   when:L('2025.06 / 13, 16, 19','13, 16 and 19 Jun 2025','2025年6月13、16、19日'), days:D(6,5),
+   prices:[['adult','2,650,000₮'],['kid','2,150,000₮']],
+   hl:[L('Нислэгтэй','Flights included','含机票'), L('Усан парк','Water park','水上乐园'), L('Universal Studios','Universal Studios','北京环球影城')]},
+  {slug:'beijing-jining-zhangjiakou', type:'leisure', countries:['cn'], to:city.zjk, img:P.wall,
+   title:L('Бээжин – Жининь – Жанжиакоу','Beijing – Jining – Zhangjiakou','北京—集宁—张家口'), sub:L('Цагаан хэрэм, Universal Studio','Great Wall and Universal Studios','长城、环球影城'),
+   when:L('Цагаан сар, 02/14','Tsagaan Sar (Lunar New Year), 14 Feb','白月节（蒙古新年），2月14日'),
+   prices:[['adult','1,190,000₮'],['kid','990,000₮']],
+   hl:[L('Цагаан хэрэм','Great Wall','长城'), L('Universal Studio','Universal Studios','北京环球影城')]},
+  {slug:'beijing-jining', type:'leisure', countries:['cn'], to:city.pek, img:P.wall,
+   title:L('Бээжин – Жининь','Beijing – Jining','北京—集宁'),
+   when:L('2025.01','Jan 2025','2025年1月'), prices:[['adult','1,790,000₮'],['kid','1,490,000₮']],
+   hl:[L('Бээжин, Жининь','Beijing and Jining','北京、集宁')]},
+  {slug:'hohhot-jining-checkup', type:'health', countries:['cn'], to:city.het, img:P.mount,
+   title:L('Хөх хот – Жининь – Мини Аватар','Hohhot – Jining – Mini Avatar','呼和浩特—集宁—Mini Avatar'),
+   sub:L('Эмнэлгийн үзлэг, шинжилгээтэй','With a medical check-up','含医院体检'),
+   when:L('02/01, 04/03','1 Feb, 3 Apr','2月1日、4月3日'), prices:[['adult','950,000₮'],['kid','750,000₮']],
+   hl:[L('Эмнэлгийн үзлэг, шинжилгээ','Medical check-up and tests','医院体检和化验'), L('Мини Аватар','Mini Avatar','Mini Avatar')]},
+  {slug:'hohhot-jining', type:'leisure', countries:['cn'], to:city.het, img:P.city,
+   title:L('Хөх хот – Жининь','Hohhot – Jining','呼和浩特—集宁'),
+   when:L('2025.01','Jan 2025','2025年1月'), prices:[['adult','890,000₮'],['kid','690,000₮']],
+   hl:[L('Хөх хот, Жининь','Hohhot and Jining','呼和浩特、集宁')]},
+  {slug:'zhangjiakou-beidaihe', type:'leisure', countries:['cn'], to:city.bdh, img:P.beach,
+   title:L('Жанжиакоу – Бэйдайхэ','Zhangjiakou – Beidaihe','张家口—北戴河'), sub:L('Газраар','Overland','陆路出行'),
+   when:L('8/10 – 15','10–15 Aug','8月10日至15日'), days:D(5,4), prices:[['p','990,000₮']], phones:PARTNER,
+   hl:[L('Газрын тээврээр','Overland travel','陆路出行')]},
+  {slug:'datong-mini-avatar', type:'leisure', countries:['cn'], to:city.dat, img:P.mount,
+   title:L('Датон + Мини Аватар','Datong + Mini Avatar','大同 + Mini Avatar'),
+   when:S24, prices:[['p','990,000₮']], hl:[L('Датон','Datong','大同'), L('Мини Аватар','Mini Avatar','Mini Avatar')]},
+  {slug:'mini-avatar-mini-hainan', type:'leisure', countries:['cn'], to:city.het, img:P.lake,
+   title:L('Мини Аватар + Мини Хайнан','Mini Avatar + Mini Hainan','Mini Avatar + Mini Hainan'),
+   when:S24, prices:[['p','950,000₮']], hl:[L('Мини Аватар','Mini Avatar','Mini Avatar'), L('Мини Хайнан','Mini Hainan','Mini Hainan')]},
+  {slug:'hohhot-routes', type:'leisure', countries:['cn'], to:city.het, img:P.city,
+   title:L('Хөх хот, Жининь, Мини Аватар, Мини Хайнан','Hohhot, Jining, Mini Avatar, Mini Hainan','呼和浩特、集宁、Mini Avatar、Mini Hainan'),
+   sub:L('Олон чиглэлтэй','Several routes','多条线路'), when:S24, prices:[['p',FROM('850,000₮')]],
+   hl:[L('Хөх хот','Hohhot','呼和浩特'), L('Жининь','Jining','集宁'), L('Мини Аватар','Mini Avatar','Mini Avatar'), L('Мини Хайнан','Mini Hainan','Mini Hainan')]},
+  {slug:'beijing-datong-tianjin', type:'leisure', countries:['cn'], to:city.tsn, img:P.wall,
+   title:L('Бээжин – Датон, Бэйдайхэ – Тяньжин','Beijing – Datong, Beidaihe – Tianjin','北京—大同、北戴河—天津'),
+   when:S24, prices:[['p',FROM('1,550,000₮')]], hl:[L('Бээжин, Датон, Бэйдайхэ, Тяньжин','Beijing, Datong, Beidaihe, Tianjin','北京、大同、北戴河、天津')]},
+  {slug:'shenyang-benxi', type:'business', countries:['cn'], to:city.she, img:P.factory,
+   title:L('Шэньян – Бэнши бизнес аялал','Shenyang – Benxi business trip','沈阳—本溪商务考察'), sub:L('AI, робот үйлдвэр, рашаан','AI and robotics factories, hot springs','AI与机器人工厂、温泉'),
+   when:L('2026.08.18 – 25','18–25 Aug 2026','2026年8月18日至25日'), days:L('8 хоног','8 days','8天'), prices:[['p','1,290,000₮']], phones:PARTNER,
+   hl:[L('AI, робот үйлдвэрүүдтэй танилцах','Visits to AI and robotics factories','参观AI与机器人工厂'), L('Рашаан','Hot springs','温泉')]},
+  {slug:'beijing-dubai', type:'leisure', countries:['cn','ae'], to:city.dxb, img:P.dubai,
+   title:L('Бээжин + Дубай','Beijing + Dubai','北京 + 迪拜'), sub:L('Хосолсон аялал','Combined tour','联游线路'),
+   when:L('2024.11.08','8 Nov 2024','2024年11月8日'), hl:[L('Бээжин, Дубай','Beijing and Dubai','北京、迪拜')]},
+  {slug:'dubai', type:'free', countries:['ae'], to:city.dxb, img:P.dubai, title:L('Дубайн чөлөөт аялал','Dubai independent trip','迪拜自由行')},
+  {slug:'vietnam', type:'free', countries:['vn'], to:PL.vn, img:P.viet, title:L('Вьетнамын чөлөөт аялал','Vietnam independent trip','越南自由行'), when:L('2025.01–02','Jan–Feb 2025','2025年1–2月')},
+  {slug:'thailand', type:'free', countries:['th'], to:PL.th, img:P.thai, title:L('Тайландын чөлөөт аялал','Thailand independent trip','泰国自由行'), when:L('2025.01–02','Jan–Feb 2025','2025年1–2月')},
+  {slug:'turkiye', type:'free', countries:['tr'], to:PL.tr, img:P.turkey, title:L('Туркийн чөлөөт аялал','Türkiye independent trip','土耳其自由行'), when:L('2025.01–02','Jan–Feb 2025','2025年1–2月')}
+];
+
+const COUNTRIES = [
+  {c:'cn', img:P.wall, note:L('Бээжин, Шанхай, Хайнан, Хөх хот, Жанжиажэ','Beijing, Shanghai, Hainan, Hohhot, Zhangjiajie','北京、上海、海南、呼和浩特、张家界')},
+  {c:'kr', img:P.korea, note:L('Чэжү, Инчон. Круйзээр','Jeju and Incheon, by cruise','济州、仁川（邮轮）')},
+  {c:'jp', img:P.japan, note:L('Фукуока, Нагасаки, Сасебо. Круйзээр','Fukuoka, Nagasaki, Sasebo, by cruise','福冈、长崎、佐世保（邮轮）')},
+  {c:'ae', img:P.dubai, note:L('Дубай','Dubai','迪拜')},
+  {c:'vn', img:P.viet, note:L('Чөлөөт аялал','Independent travel','自由行')},
+  {c:'th', img:P.thai, note:L('Чөлөөт аялал','Independent travel','自由行')},
+  {c:'tr', img:P.turkey, note:L('Чөлөөт аялал','Independent travel','自由行')}
+];
+
+const TYPICAL = [L('4–5 одтой буудал','4–5 star hotel','四至五星级酒店'), L('Хөтөч','Guide','导游'), L('Орчуулагч','Interpreter','翻译'), L('Даатгал','Insurance','保险'), L('Автобус','Coach','大巴')];
+
+const FAQ = [
+  [L('Аяллын үнэд юу багтдаг вэ?','What does the price include?','价格包含哪些？'),
+   L('Ихэвчлэн 4–5 одтой буудал, хөтөч, орчуулагч, даатгал, автобус багтдаг. Аялал бүрт ялгаатай тул дэлгэрэнгүйг утсаар лавлана уу.',
+     'Usually a 4–5 star hotel, a guide, an interpreter, insurance and coach transport. It varies by tour, so please call us for details.',
+     '通常包含四至五星级酒店、导游、翻译、保险和大巴。各线路不同，详情请致电咨询。')],
+  [L('Хөнгөлөлт байдаг уу?','Are there discounts?','有优惠吗？'),
+   L('Гэр бүл эсвэл хамт олон 5-аас дээш хүнтэй бол үнэ хямдарна. Canton Fair бизнес аялалд баг бүрдвэл хямдралтай.',
+     'Families and groups of five or more get a lower price. The Canton Fair business trip is also discounted for groups.',
+     '家庭或5人以上团体享受优惠价。广交会商务考察组团另有优惠。')],
+  [L('Хүүхдийн үнэ тусдаа юу?','Is there a child price?','儿童有单独价格吗？'),
+   L('Олон аялалд хүүхдийн үнэ тусдаа байдаг. Жишээ нь Шанхайн аялалд том хүн 3,490,000₮, хүүхэд 2,990,000₮.',
+     'Many tours have a separate child price. For example, the Shanghai tour is 3,490,000₮ for adults and 2,990,000₮ for children.',
+     '许多线路设有儿童价。例如上海线路成人3,490,000₮，儿童2,990,000₮。')],
+  [L('Круйз аялал гэж юу вэ?','How do the cruises work?','邮轮旅游是怎样的？'),
+   L('Хятадын Тяньжин боомтоос хөлөг онгоцоор гарч Япон, Солонгосын хотуудаар аялдаг. 3 улсын круйз нь Тяньжин – Фукуока – Чэжү чиглэлд 15 давхар хөлгөөр явдаг.',
+     'You sail from Tianjin in China and visit cities in Japan and South Korea. The 3-country cruise runs Tianjin – Fukuoka – Jeju on a 15-deck ship.',
+     '从中国天津港登船，前往日本和韩国的城市。三国邮轮航线为天津—福冈—济州，乘坐15层邮轮。')],
+  [L('Аялал хэр олон гардаг вэ?','How often do tours depart?','多久出发一次？'),
+   L('2024 оны зун Хятадын аяллууд долоо хоног бүрийн лхагва, ням гарагт гардаг байсан. Одоогийн хуваарийг утсаар лавлана уу.',
+     'In summer 2024 our China tours left every Wednesday and Sunday. Call us for the current schedule.',
+     '2024年夏季，中国线路每周三、周日出发。最新安排请致电咨询。')],
+  [L('Тэтгэлгийн талаар хаанаас мэдэх вэ?','Where can I learn about scholarships?','如何了解奖学金？'),
+   L('Бакалавр, магистрын 100% тэтгэлэгт хөтөлбөрийн мэдээллийг daamworld.net сайтаас эсвэл утсаар лавлана уу.',
+     'Details of the fully funded bachelor’s and master’s programmes are on daamworld.net, or call us.',
+     '本科、硕士全额奖学金详情请访问 daamworld.net 或致电咨询。')]
+];
+
+/* =========================================================
+   Туслах функцууд
+   ========================================================= */
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const fmtDate = iso => { const [, m, d] = iso.split('-').map(Number);
+  return lang === 'en' ? `${d} ${MON[m - 1]}` : lang === 'zh' ? `${m}月${d}日` : `${m} сарын ${d}`; };
+const todayUB = () => { try { return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Ulaanbaatar'}).format(new Date()); } catch(e) { return new Date().toISOString().slice(0,10); } };
+const priceVal = v => T(v);
+const priceLabel = k => t('price.' + k);
+const ALL = [...UPCOMING, ...PROGRAMS];
+const bySlug = s => ALL.find(x => x.slug === s);
+const store = { get(){ try { return localStorage.getItem('daam-lang'); } catch(e) { return null; } }, set(v){ try { localStorage.setItem('daam-lang', v); } catch(e) {} } };
+
+/* =========================================================
+   Нав, цэс
+   ========================================================= */
+$('#menu').onclick = () => { const o = $('#nav').classList.toggle('open'); $('#menu').setAttribute('aria-expanded', o); };
+$$('#links a').forEach(a => a.addEventListener('click', () => { $('#nav').classList.remove('open'); $('#menu').setAttribute('aria-expanded', false); }));
+addEventListener('scroll', () => $('#nav').classList.toggle('scrolled', scrollY > 8), {passive:true});
+const spy = new IntersectionObserver(es => es.forEach(en => {
+  if (en.isIntersecting) $$('#links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
+}), {rootMargin:'-45% 0px -50% 0px'});
+['programs','countries','about','study','contact'].forEach(id => spy.observe(document.getElementById(id)));
+
+$('#phA').style.backgroundImage = pic(P.beach, 1);
+$('#phB').style.backgroundImage = pic(P.wall, 0);
+$('#aboutIm').style.backgroundImage = pic(P.people, 2);
+$('#studyIm').style.backgroundImage = pic(P.uni, 3);
+
+/* =========================================================
+   Хөөрөх самбар
+   ========================================================= */
+const live = () => { const d = todayUB(); return UPCOMING.filter(u => u.end >= d).sort((a, b) => a.date.localeCompare(b.date)); };
+const flapHTML = str => [...str].map(ch => ch === '/' ? `<i class="sep">/</i>` : `<i data-c="${ch}">${ch}</i>`).join('');
+let flipped = false;
+function renderBoard(){
+  const list = live();
+  if (!list.length) { $('#board').innerHTML = `<p class="board-empty">${t('board.empty')}</p>`; return; }
+  $('#board').innerHTML = list.map(u => {
+    const [, m, d] = u.date.split('-');
+    const p0 = u.prices[0], p1 = u.prices[1];
+    return `<button type="button" class="drow" data-slug="${u.slug}">
+      <span class="c-date"><span class="flap" aria-label="${fmtDate(u.date)}">${flapHTML(m + '/' + d)}</span></span>
+      <span class="dest-cell"><span class="flap" aria-hidden="true">${flapHTML(u.code)}</span><small>${esc(T(u.to))}</small></span>
+      <span class="trip"><b>${esc(T(u.title))}</b><span>${esc([T(u.days), t('type.' + u.type)].filter(Boolean).join(lang === 'zh' ? '，' : ', '))}</span></span>
+      <span class="dprice"><b>${esc(priceVal(p0[1]))}</b>${p1 ? `<span>${priceLabel(p1[0])} ${esc(priceVal(p1[1]))}</span>` : ''}</span>
+      <span class="dstatus">${t('status.open')}</span>
+    </button>`;
+  }).join('');
+  if (!flipped) { flipped = true; flip(); }
+}
+function flip(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const DIG = '0123456789', LET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $$('#board .flap i[data-c]').forEach((el, n) => {
+    const target = el.dataset.c, pool = /\d/.test(target) ? DIG : LET;
+    let k = 0; const steps = 8 + (n % 5) * 3;
+    const id = setInterval(() => { k++; el.textContent = k >= steps ? target : pool[Math.floor(Math.random() * pool.length)]; if (k >= steps) clearInterval(id); }, 55);
+  });
+}
+function tick(){ try { $('#clock').textContent = new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'Asia/Ulaanbaatar'}).format(new Date()); } catch(e) {} }
+tick(); setInterval(tick, 30000);
+
+function renderNext(){
+  const n = live()[0], el = $('#next');
+  if (!n) { el.hidden = true; return; }
+  el.hidden = false; el.dataset.slug = n.slug;
+  el.innerHTML = `<b>${t('hero.next')}</b><span><strong>${esc(T(n.to))}</strong>${lang === 'zh' ? '，' : ', '}${fmtDate(n.date)}</span>`;
+}
+$('#next').onclick = e => openDrawer(e.currentTarget.dataset.slug);
+
+/* =========================================================
+   Хөтөлбөрүүд: төрөл, хайлт, улс
+   ========================================================= */
+const TYPES = ['all','leisure','cruise','health','business','free'];
+const state = { type:'all', country:'', q:'', showAll:false };
+const PAGE = 9;
+
+function renderTabs(){
+  $('#tabs').innerHTML = TYPES.map(k => {
+    const n = k === 'all' ? PROGRAMS.length : PROGRAMS.filter(p => p.type === k).length;
+    return `<button type="button" data-t="${k}" aria-pressed="${k === state.type}">${t('type.' + k)}<small>${n}</small></button>`;
+  }).join('');
+}
+$('#tabs').onclick = e => { const b = e.target.closest('button'); if (!b) return; state.type = b.dataset.t; state.showAll = false; renderTabs(); renderGrid(); };
+
+function renderSelect(){
+  $('#cSel').innerHTML = `<option value="">${t('prog.allc')}</option>` + COUNTRIES.map(c => `<option value="${c.c}">${T(PL[c.c])}</option>`).join('');
+  $('#cSel').value = state.country;
+}
+$('#cSel').onchange = e => { state.country = e.target.value; renderGrid(); };
+$('#q').oninput = e => { state.q = e.target.value.trim().toLowerCase(); renderGrid(); };
+
+const hay = p => [p.title, p.sub, p.to, ...p.countries.map(c => PL[c])].filter(Boolean)
+  .flatMap(v => typeof v === 'string' ? [v] : Object.values(v)).join(' ').toLowerCase();
+
+function filtered(){
+  return PROGRAMS.filter(p => (state.type === 'all' || p.type === state.type)
+    && (!state.country || p.countries.includes(state.country))
+    && (!state.q || hay(p).includes(state.q)));
+}
+function cardFoot(p){
+  if (!p.prices || !p.prices.length) return `<div><span>${t('price.p')}</span><b class="ask">${t('price.ask')}</b></div>`;
+  const [k0, v0] = p.prices[0], p1 = p.prices[1];
+  return `<div><span>${priceLabel(k0)}</span><b>${esc(priceVal(v0))}</b></div>${p1 ? `<em>${priceLabel(p1[0])}<br>${esc(priceVal(p1[1]))}</em>` : ''}`;
+}
+function renderGrid(){
+  const list = filtered();
+  const narrowed = !!(state.country || state.q);
+  const shown = state.showAll || narrowed ? list : list.slice(0, PAGE);
+  $('#resultNote').innerHTML = narrowed && list.length ? `${t('prog.found', {n:list.length})}<button type="button" id="clearF">${t('prog.clear')}</button>` : '';
+  $('#grid').innerHTML = list.length ? shown.map(p => {
+    const i = PROGRAMS.indexOf(p);
+    return `<button type="button" class="tk" data-slug="${p.slug}">
+      <span class="phw"><span class="ph" style="display:block;background-image:${pic(p.img, i)}"></span><span class="tag">${t('type.' + p.type)}</span></span>
+      <span class="bd">
+        <span class="where">${t('city.ub')} <i></i> ${esc(T(p.to))}</span>
+        <strong class="h">${esc(T(p.title))}</strong>
+        ${p.sub ? `<span class="when">${esc(T(p.sub))}</span>` : ''}
+        ${p.when || p.days ? `<span class="when">${[T(p.when), T(p.days)].filter(Boolean).map(esc).join(lang === 'zh' ? '，' : ', ')}</span>` : ''}
+      </span>
+      <span class="ft">${cardFoot(p)}</span>
+    </button>`;
+  }).join('') : `<div class="empty">${t('prog.none')}<br><button type="button" class="btn ghost" id="clearF2">${t('prog.clear')}</button></div>`;
+  const more = $('#moreBtn');
+  more.parentElement.style.display = !narrowed && list.length > PAGE ? '' : 'none';
+  more.textContent = state.showAll ? t('prog.less') : t('prog.more', {n:list.length});
+  const clear = () => { state.country = ''; state.q = ''; state.type = 'all'; state.showAll = false; $('#q').value = ''; $('#cSel').value = ''; renderTabs(); renderGrid(); };
+  if ($('#clearF')) $('#clearF').onclick = clear;
+  if ($('#clearF2')) $('#clearF2').onclick = clear;
+}
+$('#moreBtn').onclick = () => { state.showAll = !state.showAll; renderGrid(); if (!state.showAll) $('#programs').scrollIntoView(); };
+
+/* =========================================================
+   Улсууд
+   ========================================================= */
+function renderCountries(){
+  $('#ctry').innerHTML = COUNTRIES.map((c, i) => {
+    const n = ALL.filter(p => p.countries.includes(c.c)).length;
+    return `<button type="button" data-c="${c.c}"><div class="im" style="background-image:${pic(c.img, i)}"></div><b>${T(PL[c.c])}</b><span>${esc(T(c.note))}</span><span class="n">${t('ctry.n', {n})}</span></button>`;
+  }).join('');
+}
+$('#ctry').onclick = e => {
+  const b = e.target.closest('button'); if (!b) return;
+  state.country = b.dataset.c; state.type = 'all'; state.q = ''; $('#q').value = ''; $('#cSel').value = state.country;
+  renderTabs(); renderGrid(); $('#programs').scrollIntoView();
+};
+
+/* =========================================================
+   Галерей, FAQ
+   ========================================================= */
+const GAL = [P.cruise, P.beach, P.mount, P.korea, P.wall];
+function renderGallery(){
+  $('#gallery').innerHTML = GAL.map((g, i) => `<button type="button" aria-label="${t('gal.zoom')}" data-g="${g}" style="background-image:${pic(g, i)}"></button>`).join('');
+}
+$('#gallery').onclick = e => { const b = e.target.closest('button'); if (!b) return;
+  $('#lbImg').style.backgroundImage = `url(https://images.unsplash.com/${b.dataset.g}?auto=format&fit=crop&w=2000&q=80)`; $('#lb').classList.add('on'); $('#lbClose').focus(); };
+const closeLb = () => $('#lb').classList.remove('on');
+$('#lbClose').onclick = closeLb; $('#lb').onclick = e => { if (e.target.id === 'lb') closeLb(); };
+
+function renderFAQ(){
+  const open = $$('#faqList details').map(d => d.open);
+  $('#faqList').innerHTML = FAQ.map(([q, a], i) => `<details${open[i] ? ' open' : ''}><summary>${esc(T(q))}</summary><p>${esc(T(a))}</p></details>`).join('');
+}
+
+/* =========================================================
+   Дэлгэрэнгүй цонх (холбоостой: #tour/slug)
+   ========================================================= */
+let current = null, lastFocus = null;
+function drawerHTML(x){
+  const isUp = UPCOMING.includes(x);
+  const idx = ALL.indexOf(x);
+  const phone = x.phones ? x.phones[0] : '7210-0248';
+  const prices = x.prices && x.prices.length
+    ? x.prices.map(([k, v]) => `<div><span>${priceLabel(k)}</span><b>${esc(priceVal(v))}</b></div>`).join('')
+    : `<div><span>${t('price.p')}</span><b class="ask">${t('price.ask')}</b></div>`;
+  return `
+    <div class="cover" style="background-image:${pic(x.img, idx)}"><button class="close" id="close" aria-label="${t('close')}">&times;</button></div>
+    <div class="in">
+      <div class="kicker">${x.countries.map(c => T(PL[c])).join(lang === 'zh' ? '、' : ', ')} / ${t('type.' + x.type)}</div>
+      <h3 id="dTitle">${esc(T(x.title))}</h3>
+      <div class="meta">
+        ${x.when ? `<div><span>${isUp ? t('d.when') : t('d.ran')}</span><b>${esc(T(x.when))}</b></div>` : ''}
+        ${x.days ? `<div><span>${t('d.days')}</span><b>${esc(T(x.days))}</b></div>` : ''}
+      </div>
+      <h4>${t('d.hl')}</h4>
+      ${x.hl && x.hl.length ? `<ul class="hl">${x.hl.map(h => `<li>${esc(T(h))}</li>`).join('')}</ul>` : `<p style="color:var(--slate)">${t('d.nohl')}</p>`}
+      <h4>${t('d.incl')}</h4>
+      <div class="incl">${TYPICAL.map(i => `<span>${T(i)}</span>`).join('')}</div>
+      <div class="pricebox">${prices}</div>
+      <div class="acts">
+        <a class="btn" href="tel:${phone.replace(/-/g, '')}">${t('d.call', {p:phone})}</a>
+        <a class="btn line" href="${FB}" target="_blank" rel="noopener">Facebook</a>
+        <button type="button" class="btn ghost" id="copy">${t('d.copy')}</button>
+      </div>
+      ${x.phones ? `<p class="note">${t('d.phone', {p:x.phones.join(', ')})}</p>` : ''}
+      <p class="note">${isUp ? '' : t('d.past') + ' '}${t('note.price')} ${t('d.group')}</p>
+    </div>`;
+}
+function bindDrawer(){
+  $('#close').onclick = closeDrawer;
+  $('#copy').onclick = async e => {
+    const btn = e.currentTarget;
+    try { await navigator.clipboard.writeText(location.href); btn.textContent = t('d.copied'); setTimeout(() => { btn.textContent = t('d.copy'); }, 1800); } catch(err) {}
+  };
+}
+function openDrawer(slug){
+  const x = bySlug(slug); if (!x) return;
+  if (!current) lastFocus = document.activeElement;
+  current = slug;
+  const dr = $('#drawer');
+  dr.innerHTML = drawerHTML(x); dr.scrollTop = 0;
+  dr.setAttribute('aria-labelledby', 'dTitle');
+  dr.classList.add('on'); $('#scrim').classList.add('on'); dr.setAttribute('aria-hidden', 'false');
+  bindDrawer(); $('#close').focus();
+  try { history.replaceState(null, '', location.pathname + location.search + '#tour/' + slug); } catch(e) {}
+}
+function closeDrawer(){
+  if (!current) return;
+  current = null;
+  $('#drawer').classList.remove('on'); $('#scrim').classList.remove('on'); $('#drawer').setAttribute('aria-hidden', 'true');
+  try { history.replaceState(null, '', location.pathname + location.search); } catch(e) {}
+  if (lastFocus) lastFocus.focus();
+}
+document.addEventListener('click', e => { const el = e.target.closest('.drow,.tk'); if (el) openDrawer(el.dataset.slug); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLb(); closeDrawer(); } });
+$('#scrim').onclick = closeDrawer;
+
+/* =========================================================
+   Хэл солих
+   ========================================================= */
+function setLang(l, save = true){
+  lang = LANGS.includes(l) ? l : 'mn';
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+  document.title = t('meta.title');
+  document.querySelector('meta[name="description"]').setAttribute('content', t('meta.desc'));
+  $$('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+  $$('[data-i18n-html]').forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
+  $$('[data-i18n-aria]').forEach(el => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
+  $$('[data-i18n-ph]').forEach(el => el.setAttribute('placeholder', t(el.dataset.i18nPh)));
+  $$('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
+  $('#drawer').setAttribute('aria-label', t('d.label'));
+  $('#lb').setAttribute('aria-label', t('gal.zoom'));
+  renderNext(); renderBoard(); renderTabs(); renderSelect(); renderGrid(); renderCountries(); renderGallery(); renderFAQ();
+  if (current) { $('#drawer').innerHTML = drawerHTML(bySlug(current)); bindDrawer(); }
+  if (save) store.set(lang);
+  try { const u = new URL(location.href); u.searchParams.set('lang', lang); history.replaceState(null, '', u); } catch(e) {}
+}
+$$('.lang').forEach(g => g.addEventListener('click', e => { const b = e.target.closest('button'); if (b) setLang(b.dataset.lang); }));
+
+(function init(){
+  let l = null;
+  try { l = new URL(location.href).searchParams.get('lang'); } catch(e) {}
+  setLang(l || store.get() || 'mn', !!l);
+  const m = location.hash.match(/^#tour\/([\w-]+)$/);
+  if (m) openDrawer(m[1]);
+})();
+</script>
+</body>
+</html>
